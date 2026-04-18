@@ -1,0 +1,19 @@
+{
+  "name": "goof-proofs",
+  "version": "0.1.0",
+  "description": "Battle-tested Claude Code skills and reference rules from real production work. Skills cover brainstorming, pre-build thinking, systematic debugging, agent orchestration, and session retrospectives. Bundled rule files document gotchas across Supabase, Next.js, Railway, iOS, iCloud, computer-use, LLM prompting, and more.",
+  "author": {
+    "name": "Dave Tedder",
+    "url": "https://github.com/davetedder"
+  },
+  "homepage": "https://github.com/davetedder/daves-digi-doodads",
+  "keywords": [
+    "claude-code",
+    "skills",
+    "debugging",
+    "llm-patterns",
+    "supabase",
+    "nextjs",
+    "railway"
+  ]
+}

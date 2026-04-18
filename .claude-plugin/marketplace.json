@@ -1,0 +1,14 @@
+{
+  "name": "daves-digi-doodads",
+  "owner": {
+    "name": "Dave Tedder",
+    "url": "https://github.com/davetedder"
+  },
+  "plugins": [
+    {
+      "name": "goof-proofs",
+      "source": "./plugins/goof-proofs",
+      "description": "Skills and rules from production — debugging discipline, LLM patterns, and platform gotchas for Supabase, Next.js, Railway, iOS, and more."
+    }
+  ]
+}
