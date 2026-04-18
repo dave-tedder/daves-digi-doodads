@@ -2,7 +2,7 @@
 
 ## Session Index
 <!-- One line per session. Newest at top. Format: Session N (date) - [summary] -->
-- Session 2 (2026-04-18) - v0.2 skills refactor: 21 rules → skills, 5 stay as rules, deploy + tag v0.2.0
+- Session 2 (2026-04-18) - v0.2.0 skills refactor (21 rules → skills) + v0.2.1 README patch + personal setup deployed, ~51% token reduction
 - Session 1 (2026-04-17) - Initial scaffolding, manifests, skills, rules, README, push
 
 ## Session 2 - 2026-04-18
@@ -54,22 +54,20 @@ These 5 will survive the upcoming "delete duplicates" deploy because they aren't
 - `plugins/goof-proofs/.claude-plugin/plugin.json` — version bump
 - `README.md` — full skills/rules section rewrite
 
-**Verification (BEFORE/AFTER token measurement):**
+**Verification (BEFORE/AFTER token measurement) — actual post-deploy:**
 
-Word counts (≈1 token per 0.75 words for English markdown). The other-session-captured `claude-code-rules-token-cost.md` measured 26 rules at ≈22K tokens, which gels with the chars/4 estimate.
-
-| Auto-loaded into every session | BEFORE | AFTER (projected post-deploy) |
+| Auto-loaded into every session | BEFORE | AFTER (actual) |
 |---|---:|---:|
 | `~/.claude/CLAUDE.md` | 680 w | 680 w |
-| `~/.claude/rules/` (26 → 7 personal-only) | 13,262 w | 3,539 w |
-| `~/.claude/skills/` (5 dirs → 0; come from plugin instead) | 2,305 w | 0 w |
+| `~/.claude/rules/` | 13,262 w (26 files) | 6,183 w (10 files) |
+| `~/.claude/skills/` | 2,305 w (5 dirs) | 0 w (empty) |
 | Plugin skill metadata (frontmatter only, body lazy-loaded) | n/a | 1,121 w |
-| **Total auto-loaded** | **~16,247 w** | **~5,340 w** |
-| **Approximate tokens** | **~22,000** | **~7,400** |
+| **Total auto-loaded** | **~16,247 w** | **~7,984 w** |
+| **Approximate tokens** | **~22,000** | **~10,800** |
 
-Net: **~67% reduction in always-loaded tokens** (~14,600 tokens saved per cold session). Skill bodies (12,700 words across 26 skills) only enter context when their narrow trigger fires — typical session loads 0-2 skill bodies on demand.
+Net: **~51% reduction in always-loaded tokens** (~11,200 tokens saved per cold session). Less than the 67% projection because Dave opted to keep 3 behavioral rules auto-loading (`tracking-and-verification`, `security-baseline`, `multi-session-workflow`) — the correct call given those are real discipline guidance, not just reference. The 26 plugin skill bodies (~12,700 words combined) only enter context when their narrow trigger fires.
 
-The 7 personal-only rules retained in `~/.claude/rules/`: `mcp-toggling.md`, `tech-stacks.md`, plus the 5 retro rules from the other session (`claude-code-plugins`, `claude-code-rules-token-cost`, `gh-username-verification`, `skill-authoring-patterns`, `skill-vs-reference-triage`).
+Personal `~/.claude/rules/` after cleanup (10 files): `claude-code-plugins`, `claude-code-rules-token-cost`, `gh-username-verification`, `mcp-toggling`, `multi-session-workflow`, `security-baseline`, `skill-authoring-patterns`, `skill-vs-reference-triage`, `tech-stacks`, `tracking-and-verification`. Personal `~/.claude/skills/` empty (5 v0.1 skills now served by plugin).
 
 **Commit(s) on v0.2-skills-refactor branch:**
 - `9d9ffb6` - Open Session 2 entry for v0.2 skills refactor
@@ -83,12 +81,18 @@ The 7 personal-only rules retained in `~/.claude/rules/`: `mcp-toggling.md`, `te
 - `e9e9d39` - v0.2: convert misc bundle 2 to skills (node, notion, asset, youtube)
 - `fbaa0b2` - v0.2: convert computer-use rule into 2 skills (with content trim)
 - `fcb9230` - v0.2.0: bump plugin version, rewrite README, add framing to security-baseline
+- `7abbbf0` - v0.2 close-out: finalize Session 2 entry with measurements + handoff
+- `a7900a1` - Merge v0.2-skills-refactor to main (no-ff, preserves branch history)
+- `6dafd6f` - v0.2.1: README — explain how to elevate 3 reference rules to auto-load
 
-Pending (deferred to morning check-in with Dave):
-- Push branch to origin (will do as last step tonight)
-- `/plugin install goof-proofs@daves-digi-doodads` — interactive Claude Code command, needs Dave at the keyboard
-- Delete duplicates in `~/.claude/rules/` (19 plugin-source rules) and `~/.claude/skills/` (5 plugin-source skill dirs) — destructive, plus needs to happen after the install succeeds
-- Merge to main + tag v0.2.0 + push tag — held back so Dave can review the diff before publishing
+Tags: `v0.2.0`, `v0.2.1` — both pushed to origin.
+
+**Morning deploy (post-handoff):**
+- Dave opened actual Claude Code CLI (`~/.local/bin/claude`, v2.1.89) — confirmed Desktop's Code-tab does NOT support `/plugin` slash commands; only the CLI does.
+- `/plugin marketplace update daves-digi-doodads` opened the new TUI plugin browser; install completed via the UI; `/reload-plugins` activated 26 skills + 6 agents + 1 hook.
+- Plugin cache landed at `~/.claude/plugins/cache/daves-digi-doodads/goof-proofs/0.2.0/` (then 0.2.1 after the README patch). 26 skills present, plugin.json version verified.
+- Cleanup: deleted 19 plugin-source rules + 2 lookup rules (`apple-health-no-rest-api`, `railway-domains`) + 5 v0.1 skill dirs from personal setup. (First attempt via Dave's other Claude Code session didn't actually execute the rm commands — agent commented but didn't invoke Bash. Re-ran from this session and verified.)
+- Final personal `~/.claude/rules/` has 10 files; `~/.claude/skills/` is empty.
 
 **Notes:**
 - **Computer-use MCP injection overlap.** During conversion, this very session's system prompt included the computer-use MCP's auto-injected guidance (tier system, browser fallback, link safety, request-access flow). That guidance overlaps roughly half the original `computer-use-tiers.md` rule body. The skill body was trimmed to only include Dave-specific lessons not in that injection (Chrome vs Brave, login state, hybrid Computer-Use + Control Chrome pattern, Control Chrome reliability, iframe blind spots, Cowork agent fallbacks, form_input vs type on claude.ai). Net effect: smaller skill body, no duplicated guidance.
