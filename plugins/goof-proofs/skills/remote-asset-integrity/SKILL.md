@@ -1,3 +1,8 @@
+---
+name: remote-asset-integrity
+description: "Use when designing or debugging a pipeline that uploads files to remote storage (R2, S3, CDN) and subsequently triggers processing, rendering, or deployment from that storage — particularly for large files (>150MB), or when 'works locally but breaks in production' is suspected to come from a stale remote copy."
+---
+
 # Remote Asset Integrity
 
 Any pipeline that uploads files to remote storage (R2, S3, CDN, etc.) then triggers processing from that storage must verify remote matches local before processing.

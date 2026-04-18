@@ -1,3 +1,8 @@
+---
+name: youtube-api-gotchas
+description: "Use when writing or debugging code that uses the YouTube Data API — especially channel searches (which frequently return wrong channels by name match), processing video description text, or passing YouTube metadata downstream to an API that does strict JSON encoding (Anthropic API, etc.)."
+---
+
 # YouTube API Gotchas
 
 ## Channel Search Returns Wrong Channels
