@@ -1,3 +1,8 @@
+---
+name: ios-safari-inputs
+description: "Use when building or debugging text input fields in a web app for mobile iOS Safari (chat inputs, forms, message composers), particularly if users report page zoom on focus, keyboard layout issues, the input being hidden behind the keyboard, or confusing form-assistant accessory bar UI."
+---
+
 # iOS Safari Input + Keyboard Gotchas
 
 Three related traps that bite any mobile web app with a text input: focus-zoom, the form-assistant accessory bar, and the input-above-keyboard layout problem. None of them surface in desktop Safari or Chrome DevTools mobile emulation. All of them are fixable to varying degrees, but the accessory bar itself is OS-level and can't be fully removed from web code.
