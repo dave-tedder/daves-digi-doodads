@@ -8,7 +8,7 @@ A public [Claude Code](https://claude.com/claude-code) plugin marketplace. Curre
 
 Battle-tested skills and reference rules distilled from real production work. Lessons-learned, not theory.
 
-**v0.2 changes:** 21 rules from v0.1 became auto-triggered skills. Five rules stay as reference markdown (broad-trigger workflow material that's better cherry-picked than auto-loaded). Net: **26 skills + 5 reference rules**, with token cost on install dropping ~85% versus dumping every rule into context on every session.
+**v0.2 changes:** 19 of v0.1's rules were converted into 21 auto-triggered skills (two of those rules each split into two more-narrowly-triggered skills). Five rules stay as reference markdown (broad-trigger workflow material that's better cherry-picked than auto-loaded). Net: **26 skills + 5 reference rules**, with token cost on install dropping ~85% versus dumping every rule into context on every session.
 
 #### Skills (auto-activate based on context)
 
