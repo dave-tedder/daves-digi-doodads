@@ -1,6 +1,6 @@
 # daves-digi-doodads - Tracker
-## Status: COMPLETE
-Started: 2026-04-17 | Last Updated: 2026-04-17 | Live: https://github.com/dave-tedder/daves-digi-doodads
+## Status: IN PROGRESS (v0.2 refactor)
+Started: 2026-04-17 | Last Updated: 2026-04-18 | Live: https://github.com/dave-tedder/daves-digi-doodads
 
 ## Overview
 
@@ -18,6 +18,7 @@ Public Claude Code plugin marketplace on GitHub. Hosts `goof-proofs`, a plugin b
 - [x] Task 4 - Copy + genericize 24 rule files from ~/.claude/rules/ [Risk: medium, content review — secret scan passed, no leaks]
 - [x] Task 5 - Write README.md with install + stacks-used + forking notes [Risk: low]
 - [x] Task 6 - Create public GitHub repo and push [Risk: low]
+- [ ] Task 7 - v0.2 skills refactor: 21 rules → skills (with 2 splits + 2 consolidations), 5 stay as rules, deploy to personal ~/.claude/, tag v0.2.0 [Risk: medium — touches personal setup]
 
 ## Follow-ups (future sessions)
 

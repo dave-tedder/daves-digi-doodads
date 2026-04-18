@@ -2,7 +2,35 @@
 
 ## Session Index
 <!-- One line per session. Newest at top. Format: Session N (date) - [summary] -->
+- Session 2 (2026-04-18) - v0.2 skills refactor: 21 rules → skills, 5 stay as rules, deploy + tag v0.2.0
 - Session 1 (2026-04-17) - Initial scaffolding, manifests, skills, rules, README, push
+
+## Session 2 - 2026-04-18
+
+**Task(s) in progress:** v0.2 skills refactor per V0.2-TRIAGE.md.
+
+**Triage flips before execution (judgment-call review with Dave):**
+- `tracking-and-verification` — flipped from skill back to rule. Trigger "any task spanning multiple steps" over-fires. Friends already have superpowers' verification-before-completion. Workflow file format is reference material, read once.
+- `security-baseline` — flipped from skill back to rule. Trigger "auth/db/secrets code" matches every backend session. Most items are general hygiene. Add a framing note that the unique signal is the Supabase write-error-destructure pattern.
+- `multi-session-workflow` — flipped from skill back to rule. Same broad workflow trigger as tracking-and-verification. Friends will have their own handoff conventions.
+
+**Consolidations during conversion:**
+- `supabase-query-patterns` skill drops the "always destructure { error }" paragraph (already lives in `security-baseline` rule). Keeps FK-alias avoidance, `.select('id').single()` after insert, JSONB `.contains()`, non-empty array filter.
+- `computer-use-tiers` skill trimmed to Dave-specific lessons not already in the computer-use MCP server's auto-injected instructions. Keeps Chrome vs Brave, Claude-in-Chrome tab groups + login state, Cowork agent fallbacks, `form_input` vs `type` on claude.ai, iframe limitations, Control Chrome reliability. Drops the tier explanation since the MCP injection already covers it.
+
+**Net plan:** 21 skills + 5 reference rules.
+- Skills (21): ai-sdk-provider-defaults, css-hidden-attribute, git-commit-splitting, icloud-code-in-markdown, icloud-git-fragility, ios-print-gotchas, ios-safari-inputs, llm-decision-scoping, llm-metadata-extraction, nextjs-middleware-auth, nextjs-server-component-events, nextjs-server-component-verification, node-dev-servers, notion-large-pages, openrouter-slug-format, remote-asset-integrity, supabase-deploy-from-worktree, supabase-query-patterns, youtube-api-gotchas, computer-use-tiers, preview-eval-timeouts
+- Rules (5): apple-health-no-rest-api, railway-domains, tracking-and-verification, security-baseline, multi-session-workflow
+
+**What was done:** _(filled in as session progresses)_
+
+**Files modified:** _(filled in)_
+
+**Verification:** _(filled in)_
+
+**Commit(s):** _(filled in)_
+
+**Notes:** _(filled in)_
 
 ## Session 1 - 2026-04-17
 
