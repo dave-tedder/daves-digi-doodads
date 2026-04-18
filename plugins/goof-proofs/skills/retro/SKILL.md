@@ -25,7 +25,7 @@ Skip it for quick, single-task sessions (toggled a setting, answered a question,
 **Step 1: Gather context.**
 Read these sources (skip any that don't exist for the current project):
 - `PROJECT-TRACKER.md` in the project root (progress log entries from this session)
-- Recent entries in your memory system, if you use one (last 24 hours, filtered to relevant topics — e.g., [Open Brain](https://github.com/davetedder/open-brain) or similar)
+- Recent entries in your memory system, if you use one (last 24 hours, filtered to relevant topics — e.g., [Open Brain](https://github.com/dave-tedder/open-brain) or similar)
 - Git log for commits made this session (if git is active)
 - Any files created or modified during the session
 

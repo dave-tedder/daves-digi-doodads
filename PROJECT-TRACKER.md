@@ -6,9 +6,9 @@ Started: 2026-04-17 | Last Updated: 2026-04-17
 
 Public Claude Code plugin marketplace on GitHub. Hosts `goof-proofs`, a plugin bundling Dave's battle-tested skills and rules so friends can bootstrap their own Claude Code setup.
 
-- Marketplace: `github.com/davetedder/daves-digi-doodads`
+- Marketplace: `github.com/dave-tedder/daves-digi-doodads`
 - Plugin: `goof-proofs` (lessons from production)
-- Install: `/plugin marketplace add davetedder/daves-digi-doodads` then `/plugin install goof-proofs@daves-digi-doodads`
+- Install: `/plugin marketplace add dave-tedder/daves-digi-doodads` then `/plugin install goof-proofs@daves-digi-doodads`
 
 ## Todo List
 

@@ -36,11 +36,25 @@ Topics covered:
 - **Security baseline** — Supabase RLS, Railway env var hygiene, never-log-PII
 - **Platform odds and ends** — YouTube API gotchas, Notion large page retrieval, Apple Health no-REST, remote asset integrity
 
+## Stacks this is built around
+
+These rules come from one person's production work. The author ships with:
+
+- **Supabase** (Postgres + RLS + Edge Functions + Storage) as the primary backend. Fastest path from idea to production for a small team. RLS as a first-class primitive removes a whole class of auth bugs. Edge Functions put async/scheduled work next to the data.
+- **Next.js (App Router)** for frontends. Server components reduce roundtrips, middleware handles auth at the edge, deploys cleanly to Railway.
+- **Railway** for hosting. GitHub-triggered deploys, reasonable pricing, managed Postgres when Supabase isn't the right fit.
+- **Claude Code + Anthropic SDK + OpenRouter** for LLM work. Claude for capability; OpenRouter for access to other models where they're cheaper or more appropriate (gpt-4o-mini for structured extraction, text-embedding-3-small for vectors).
+- **WordPress** for three owned content properties, driven via [AI Engine](https://meowapps.com/plugin/ai-engine/) MCP servers.
+- **Notion** for project management, knowledge base, and CRM, driven via Notion's MCP integration.
+- **macOS + iOS** — native development environment, with iOS Safari as the primary mobile target and iCloud Drive as the default sync layer (which is where most of the iCloud-specific traps come from).
+
+The rules reflect what hits the edges of those tools. A different stack means cherry-picking what applies. Cross-cutting rules (LLM prompting, computer-use MCP, workflow discipline, security baseline, iCloud+git traps for any Mac user, git commit splitting) still apply regardless of backend choice.
+
 ## Install
 
 ```bash
 # One-time: add the marketplace
-/plugin marketplace add davetedder/daves-digi-doodads
+/plugin marketplace add dave-tedder/daves-digi-doodads
 
 # Install the plugin
 /plugin install goof-proofs@daves-digi-doodads
