@@ -2,8 +2,48 @@
 
 ## Session Index
 <!-- One line per session. Newest at top. Format: Session N (date) - [summary] -->
+- Session 3 (2026-04-18) - v0.2.2 polish fixes from full-project review (retro framing, pronoun leaks, LICENSE, README count, V0.2-TRIAGE superseded note)
 - Session 2 (2026-04-18) - v0.2.0 skills refactor (21 rules → skills) + v0.2.1 README patch + personal setup deployed, ~51% token reduction
 - Session 1 (2026-04-17) - Initial scaffolding, manifests, skills, rules, README, push
+
+## Session 3 - 2026-04-18
+
+**Task(s) in progress:** v0.2.2 polish fixes from full-project review ("ultrareview").
+
+**Context:** User asked for a top-to-bottom review of the project at the v0.2.1 shelf-stable point. Review surfaced 3 real issues and 2 cleanup items. User confirmed all 5 for fixing. One additional genericization bug (pronoun leak in `multi-session-workflow.md`) discovered mid-verification and rolled into this session.
+
+**Findings that became tasks:**
+
+1. **Retro skill misleading invocation text.** [`skills/retro/SKILL.md:14`](plugins/goof-proofs/skills/retro/SKILL.md) said "Call `/retro` when wrapping up a session" — but retro is a skill (auto-triggered), not a slash command. User clarified: in Claude Code it CAN be invoked via `/retro` slash OR via natural language — rewrite to cover both.
+
+2. **V0.2-TRIAGE.md stale counts.** Said "22 rules → 24 skills, total 29." Actual ship was 21 new skills + 5 reference due to 3 judgment-call flips during Session 2 execute. User's call: add superseded note at top (keeps historical artifact value).
+
+3. **Pronoun leaks in multi-session-workflow.md.** Line 96 "what he's trying to accomplish", line 97 "Factor in his available tech stacks (see tech-stacks.md)". Second one also has a dangling reference to `tech-stacks.md` which is NOT shipped in the plugin (it's a personal rule). Genericize both + drop the broken parenthetical.
+
+4. **README count imprecision.** Line 11 said "21 rules from v0.1 became auto-triggered skills" — 21 is the skill count, but only 19 source rules were converted (2 of those split into 2 skills each = 17 + 4 = 21 skills). Polish to make the 19→21 split math explicit.
+
+5. **No LICENSE file.** Public marketplace with no LICENSE defaults to "all rights reserved" on GitHub. "Personal knowledge dump made public so friends can bootstrap" framing implies permissive license. Adding MIT.
+
+**Non-findings (confirmed clean during review):**
+- Zero secret leaks (scanned `sk-`, `ntn_`, `sbp_`, `ghp_`, `xoxb-`, `AKIA`, `-----BEGIN`).
+- Zero leftover `\bDave\b` / `Tedder` / unhyphenated `davetedder` references outside legit `davetedder.com` domain + `dave-tedder` GitHub handle.
+- All 26 skills have valid YAML frontmatter with narrow, situational "Use when X" descriptions.
+- Skill sizes reasonable (smallest 16 lines, largest 117 lines, no bloat).
+- Counts consistent across README, plugin.json description, and tracker (26 skills + 5 reference rules).
+- `retro/SKILL.md:28` links to private `open-brain` repo — user plans to open-source soon, so link self-resolves. Narrative `open-brain-dashboard` references in `ai-sdk-provider-defaults` and `ios-safari-inputs` are plain-text commit refs (not links), read fine without resolvable URL.
+
+**Personal-rule stale count (OUT OF SCOPE for this repo, noting for later):**
+- The personal `~/.claude/rules/multi-session-workflow.md` has a "Triage Before Execute" section with "final 19 skills + 5 reference" — the "19" is stale (actual is 21 new skills). Plugin-shipped copy does NOT have this section, so no plugin fix needed. User can update personal rule separately.
+
+**What was done:** (filled in as tasks complete)
+
+**Files modified:**
+
+**Verification:**
+
+**Commit(s):**
+
+**Notes:**
 
 ## Session 2 - 2026-04-18
 

@@ -1,5 +1,5 @@
 # daves-digi-doodads - Tracker
-## Status: COMPLETE (through v0.2.1)
+## Status: IN PROGRESS (Session 3 — v0.2.2 polish fixes)
 Started: 2026-04-17 | Last Updated: 2026-04-18 | Live: https://github.com/dave-tedder/daves-digi-doodads
 
 ## Overview
@@ -20,6 +20,12 @@ Public Claude Code plugin marketplace on GitHub. Hosts `goof-proofs`, a plugin b
 - [x] Task 6 - Create public GitHub repo and push [Risk: low]
 - [x] Task 7 - v0.2 skills refactor: 21 rules → skills (with 2 splits + 2 consolidations), 5 stay as rules, deploy to personal ~/.claude/, tag v0.2.0 [Risk: medium — touches personal setup]
 - [x] Task 8 - v0.2.1 README addition: explain how friends elevate 3 reference rules to auto-load via curl
+- [ ] Task 9 - v0.2.2: retro skill — rewrite "When to Use" to cover both slash invocation + natural language [Risk: low]
+- [ ] Task 10 - v0.2.2: V0.2-TRIAGE.md — add superseded note at top pointing to Session 2 flips [Risk: low]
+- [ ] Task 11 - v0.2.2: multi-session-workflow.md — genericize 2 pronoun leaks + drop dangling tech-stacks.md ref [Risk: low]
+- [ ] Task 12 - v0.2.2: README.md — polish rule/skill count phrasing to show the 19→21 split math [Risk: low]
+- [ ] Task 13 - v0.2.2: Add LICENSE (MIT) [Risk: low]
+- [ ] Task 14 - v0.2.2: Bump plugin.json to 0.2.2, close session, tag [Risk: low]
 
 ## Follow-ups (future sessions)
 
