@@ -11,7 +11,9 @@ Structured reflection at the end of a work session. Captures outcomes, surfaces 
 
 ## When to Use
 
-Call `/retro` when wrapping up a session where any of the following happened:
+Invoke at the end of a non-trivial work session. Claude auto-triggers `retro` when the session context matches the description above, but you can also trigger it explicitly — either as a slash command in Claude Code (`/retro`, or the namespaced form `/goof-proofs:retro` if multiple plugins define the same name) or by asking for "a retro" or an "end-of-session review" in natural language.
+
+Use it when any of the following happened:
 - Bugs were found and fixed
 - Workarounds or non-obvious solutions were discovered
 - Architectural or tooling decisions were made
