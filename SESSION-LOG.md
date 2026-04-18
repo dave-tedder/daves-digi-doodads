@@ -35,15 +35,46 @@
 **Personal-rule stale count (OUT OF SCOPE for this repo, noting for later):**
 - The personal `~/.claude/rules/multi-session-workflow.md` has a "Triage Before Execute" section with "final 19 skills + 5 reference" — the "19" is stale (actual is 21 new skills). Plugin-shipped copy does NOT have this section, so no plugin fix needed. User can update personal rule separately.
 
-**What was done:** (filled in as tasks complete)
+**What was done:**
+- **Task 9 — retro invocation rewrite.** [`skills/retro/SKILL.md`](plugins/goof-proofs/skills/retro/SKILL.md): "When to Use" section rewritten to document three invocation paths (auto-trigger, `/retro` or `/goof-proofs:retro` slash command, natural-language request) instead of the old misleading "Call `/retro`" line.
+- **Task 10 — V0.2-TRIAGE superseded note.** Added a blockquote at top of [`V0.2-TRIAGE.md`](V0.2-TRIAGE.md) summarizing the 3 Session-2 flips and pointing cold readers to SESSION-LOG.md. Preserves the doc as a teaching artifact without misleading anyone on actual final counts.
+- **Task 11 — pronoun leaks.** [`rules/multi-session-workflow.md:96-97`](plugins/goof-proofs/rules/multi-session-workflow.md): "what he's trying to accomplish" → "what the user is trying to accomplish"; "Factor in his available tech stacks (see tech-stacks.md)" → "Factor in the user's available tech stacks." Dropped the `(see tech-stacks.md)` parenthetical since that file isn't shipped with the plugin.
+- **Task 12 — README polish.** Line 11 rewrite: "19 of v0.1's rules were converted into 21 auto-triggered skills (two of those rules each split into two more-narrowly-triggered skills)" instead of the old imprecise "21 rules from v0.1 became auto-triggered skills."
+- **Task 13 — LICENSE.** Added MIT LICENSE at repo root with 2026 Dave Tedder copyright.
+- **Task 14 — plugin.json bump.** Version 0.2.1 → 0.2.2.
 
 **Files modified:**
+- `plugins/goof-proofs/skills/retro/SKILL.md`
+- `V0.2-TRIAGE.md`
+- `plugins/goof-proofs/rules/multi-session-workflow.md`
+- `README.md`
+- `LICENSE` (new)
+- `plugins/goof-proofs/.claude-plugin/plugin.json`
+- `PROJECT-TRACKER.md`, `SESSION-LOG.md` (this file)
 
 **Verification:**
+- Post-fix pronoun scan (`\b(he|his|him|her|she)\b` case-insensitive on `plugins/`): **zero matches**. Clean.
+- Secret scan (same patterns as Sessions 1-2): **zero matches**.
+- Skill count: `ls plugins/goof-proofs/skills/ | wc -l` → 26. Rule count: `ls plugins/goof-proofs/rules/ | wc -l` → 5. Matches README and plugin.json.
+- `plugin.json` version reads `0.2.2`. Valid JSON.
+- `git log --oneline` on `main` shows Session 3 commits linearly appended (no branch, no merge).
 
-**Commit(s):**
+**Commit(s) on `main`:**
+- `69e7005` - Open Session 3: v0.2.2 polish fixes from full-project review
+- `4ee1320` - Task 9: retro — rewrite invocation guidance (slash OR natural language)
+- `04bde24` - Task 10: V0.2-TRIAGE.md — add superseded note at top
+- `b52c1eb` - Task 11: multi-session-workflow — genericize two pronoun leaks
+- `7594932` - Task 12: README — polish v0.2 change phrasing to show 19→21 split math
+- `b2609e5` - Task 13: Add LICENSE (MIT)
+- (close-out commit) - Task 14: v0.2.2 — plugin.json bump + Session 3 close
+
+Tag: `v0.2.2` (will push after close commit).
 
 **Notes:**
+- **Open-brain link self-resolve.** [`skills/retro/SKILL.md:28`](plugins/goof-proofs/skills/retro/SKILL.md) has the one markdown link to `github.com/dave-tedder/open-brain`. Dave confirmed he plans to open-source that repo soon, so the 404 is short-lived. Narrative references to `open-brain-dashboard` in `ai-sdk-provider-defaults` and `ios-safari-inputs` are plain-text commit citations (not links) and read fine regardless of repo visibility. No fix needed in plugin.
+- **Personal rule stale count (OUT OF SCOPE, flagged).** The personal `~/.claude/rules/multi-session-workflow.md` has a "Triage Before Execute" section that claims "final 19 skills + 5 reference" — the correct count is 21 new skills (17 direct + 4 from 2 splits). Plugin-shipped copy does NOT include that section, so plugin is clean. Fix the personal copy in the next personal-rules pass. Carried forward in the Follow-ups section of PROJECT-TRACKER.md.
+- **No branch.** This session shipped 7 commits directly to main (no feature branch). Consistent with v0.2.1 which was also main-only. Small-scope polish, no need for branch isolation.
+- **Instruction-priority note.** TodoWrite tool reminders fired during the session. Per this project's workflow, tasks are tracked in PROJECT-TRACKER.md (the auto-loaded `tracking-and-verification.md` rule), not TodoWrite. Ignored per both the reminder's own "ignore if not applicable" clause and the workflow rule precedence.
 
 ## Session 2 - 2026-04-18
 
