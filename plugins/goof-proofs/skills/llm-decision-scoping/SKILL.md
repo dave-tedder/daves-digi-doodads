@@ -1,3 +1,8 @@
+---
+name: llm-decision-scoping
+description: "Use when designing or debugging any LLM call that asks a model to pick matches from a list (action item resolution, classification, candidate filtering, tagging, project matching, taxonomy assignment) — especially when seeing false-positive hallucinated matches across unrelated contexts."
+---
+
 # LLM Decision Functions: Scope the Candidate Pool Before Asking
 
 Any time you ask a cheap LLM (gpt-4o-mini, Haiku, etc.) to pick matches from a list — resolve open action items, pick relevant clients, match a thought to a project, classify a document against a taxonomy — the structural failure mode is always the same: if the candidate list contains items from unrelated contexts, the model will hallucinate matches no matter how conservative the prompt sounds.
