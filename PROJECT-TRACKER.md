@@ -43,6 +43,9 @@ Public Claude Code plugin marketplace on GitHub. Hosts `goof-proofs`, a plugin b
 
 ## Last Completed
 
-**Session:** 1 (2026-04-17)
-**What was done:** Full project shipped end-to-end — marketplace + plugin scaffolded, 5 skills + 24 rules genericized and published, README with stacks rationale, public repo created at https://github.com/dave-tedder/daves-digi-doodads.
-**Next task:** none — project complete. See Follow-ups above for any future additions.
+**Session:** 2 (2026-04-18) — _file work complete on `v0.2-skills-refactor` branch; deploy + tag pending Dave's morning review_
+**What was done:** Converted 21 rules into 26 skills (5 v0.1 + 21 new — 2 splits and 0 net change beyond direct conversions; the 2 splits add 2 skills, but consolidations + 1 deletion balance out to keep counts clean). 5 rules stay as reference. plugin.json bumped to 0.2.0, README rewritten, security-baseline framing added. Token measurement: ~67% reduction in always-loaded content (~22K → ~7.4K tokens per cold session).
+**Next task:** Dave reviews diff on `v0.2-skills-refactor` branch in the morning. Then:
+1. `/plugin install goof-proofs@daves-digi-doodads` (interactive)
+2. Delete the 19 plugin-source rule files from `~/.claude/rules/` and the 5 plugin-source skill dirs from `~/.claude/skills/`
+3. Merge `v0.2-skills-refactor` to main, tag v0.2.0, push tag

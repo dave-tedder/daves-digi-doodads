@@ -22,15 +22,81 @@
 - Skills (21): ai-sdk-provider-defaults, css-hidden-attribute, git-commit-splitting, icloud-code-in-markdown, icloud-git-fragility, ios-print-gotchas, ios-safari-inputs, llm-decision-scoping, llm-metadata-extraction, nextjs-middleware-auth, nextjs-server-component-events, nextjs-server-component-verification, node-dev-servers, notion-large-pages, openrouter-slug-format, remote-asset-integrity, supabase-deploy-from-worktree, supabase-query-patterns, youtube-api-gotchas, computer-use-tiers, preview-eval-timeouts
 - Rules (5): apple-health-no-rest-api, railway-domains, tracking-and-verification, security-baseline, multi-session-workflow
 
-**What was done:** _(filled in as session progresses)_
+**Other-session retro discovery (mid-session):**
 
-**Files modified:** _(filled in)_
+Mid-conversion, Dave flagged that a separate chat had finished a retro on the v0.1 ship and added 5 new rules to `~/.claude/rules/`. Reviewed each:
+- `claude-code-plugins.md` — plugin structure facts (Jan 2026 snapshot)
+- `claude-code-rules-token-cost.md` — measured the very thing Session 2 was about to measure: 26 rules ≈ 22K tokens auto-loaded per session
+- `gh-username-verification.md` — captures the davetedder vs dave-tedder bug from Session 1 as a checklist
+- `skill-authoring-patterns.md` — the "use 'the user' not name placeholders," "narrow triggers > short bodies," "split mixed rules" guidance
+- `skill-vs-reference-triage.md` — the decision framework, references this exact session's flips back to reference
 
-**Verification:** _(filled in)_
+Decision: **don't ship any of these in goof-proofs.** Audience mismatch — goof-proofs is for friends INSTALLING the plugin, not BUILDING plugins. The 5 retro rules guide plugin/skill authoring work which is Dave's personal context. They live at home in `~/.claude/rules/`. Skipping them avoids bloat without losing signal — anyone forking the plugin can read the official Anthropic docs for plugin/skill authoring.
 
-**Commit(s):** _(filled in)_
+These 5 will survive the upcoming "delete duplicates" deploy because they aren't duplicates of plugin content.
 
-**Notes:** _(filled in)_
+**What was done:**
+- Created v0.2-skills-refactor branch.
+- Measured BEFORE-state token load on Dave's personal setup.
+- Converted 21 rules into skills in 8 commits (logical bundles: iOS, iCloud, LLM, Next.js, Supabase, AI/OpenRouter, misc×2, computer-use).
+- 2 splits: nextjs-server-components → events + verification; computer-use-tiers → tiers + preview-eval-timeouts.
+- 2 consolidations: stripped duplicate "destructure { error }" paragraph from supabase-query-patterns (lives in security-baseline rule); trimmed computer-use-tiers skill body to drop content already covered by the computer-use MCP server's auto-injected guidance (tier system, browser fallback, request-access flow).
+- Renamed `ai-sdk-openai-provider-defaults` → `ai-sdk-provider-defaults` (the rule applies to all OpenAI-compatible providers, not just OpenAI).
+- Added top-of-file framing note to `security-baseline.md` highlighting that the unique signal is the Supabase write-error-destructure rule; the rest is general hygiene experienced devs already practice.
+- Bumped `plugin.json` to v0.2.0; expanded keywords; rewrote description for the skills-vs-rules split.
+- Rewrote README skills section: 26 skills tabled by category (process / stack-specific / LLM / computer-use / API), 5 reference rules with rationale for why each stays as reference. Updated icloud-git-fragility link from old rule path to new skill path.
+
+**Files modified:**
+- `PROJECT-TRACKER.md`, `SESSION-LOG.md` (this file)
+- `plugins/goof-proofs/skills/<name>/SKILL.md` × 21 new (and dirs)
+- `plugins/goof-proofs/rules/*.md` — 19 deleted (the 21 conversions minus the 2 splits which combined 1 rule into 2 skills each, so 21 - 2*1 = 19 rule deletions)
+- `plugins/goof-proofs/rules/security-baseline.md` — framing note added
+- `plugins/goof-proofs/.claude-plugin/plugin.json` — version bump
+- `README.md` — full skills/rules section rewrite
+
+**Verification (BEFORE/AFTER token measurement):**
+
+Word counts (≈1 token per 0.75 words for English markdown). The other-session-captured `claude-code-rules-token-cost.md` measured 26 rules at ≈22K tokens, which gels with the chars/4 estimate.
+
+| Auto-loaded into every session | BEFORE | AFTER (projected post-deploy) |
+|---|---:|---:|
+| `~/.claude/CLAUDE.md` | 680 w | 680 w |
+| `~/.claude/rules/` (26 → 7 personal-only) | 13,262 w | 3,539 w |
+| `~/.claude/skills/` (5 dirs → 0; come from plugin instead) | 2,305 w | 0 w |
+| Plugin skill metadata (frontmatter only, body lazy-loaded) | n/a | 1,121 w |
+| **Total auto-loaded** | **~16,247 w** | **~5,340 w** |
+| **Approximate tokens** | **~22,000** | **~7,400** |
+
+Net: **~67% reduction in always-loaded tokens** (~14,600 tokens saved per cold session). Skill bodies (12,700 words across 26 skills) only enter context when their narrow trigger fires — typical session loads 0-2 skill bodies on demand.
+
+The 7 personal-only rules retained in `~/.claude/rules/`: `mcp-toggling.md`, `tech-stacks.md`, plus the 5 retro rules from the other session (`claude-code-plugins`, `claude-code-rules-token-cost`, `gh-username-verification`, `skill-authoring-patterns`, `skill-vs-reference-triage`).
+
+**Commit(s) on v0.2-skills-refactor branch:**
+- `9d9ffb6` - Open Session 2 entry for v0.2 skills refactor
+- `d036528` - v0.2: convert iOS rules to skills
+- `e4170fb` - v0.2: convert iCloud rules to skills
+- `c01233f` - v0.2: convert LLM rules to skills
+- `9f3f9c2` - v0.2: convert Next.js rules to skills (3 skills, including 1 split)
+- `49de2b5` - v0.2: convert Supabase rules to skills (with error-destructure dedup)
+- `ad5a474` - v0.2: convert AI SDK + OpenRouter rules to skills
+- `8358d17` - v0.2: convert misc rules to skills (css-hidden, git-commit-splitting)
+- `e9e9d39` - v0.2: convert misc bundle 2 to skills (node, notion, asset, youtube)
+- `fbaa0b2` - v0.2: convert computer-use rule into 2 skills (with content trim)
+- `fcb9230` - v0.2.0: bump plugin version, rewrite README, add framing to security-baseline
+
+Pending (deferred to morning check-in with Dave):
+- Push branch to origin (will do as last step tonight)
+- `/plugin install goof-proofs@daves-digi-doodads` — interactive Claude Code command, needs Dave at the keyboard
+- Delete duplicates in `~/.claude/rules/` (19 plugin-source rules) and `~/.claude/skills/` (5 plugin-source skill dirs) — destructive, plus needs to happen after the install succeeds
+- Merge to main + tag v0.2.0 + push tag — held back so Dave can review the diff before publishing
+
+**Notes:**
+- **Computer-use MCP injection overlap.** During conversion, this very session's system prompt included the computer-use MCP's auto-injected guidance (tier system, browser fallback, link safety, request-access flow). That guidance overlaps roughly half the original `computer-use-tiers.md` rule body. The skill body was trimmed to only include Dave-specific lessons not in that injection (Chrome vs Brave, login state, hybrid Computer-Use + Control Chrome pattern, Control Chrome reliability, iframe blind spots, Cowork agent fallbacks, form_input vs type on claude.ai). Net effect: smaller skill body, no duplicated guidance.
+- **Cross-skill references.** `llm-metadata-extraction` originally referenced `llm-decision-scoping.md` by file path; updated to skill name. No other intra-plugin file-path refs found.
+- **Forward-referenced links unchanged.** `ai-sdk-provider-defaults` still mentions `dave-tedder/open-brain-dashboard` — that repo exists. The earlier Session 1 note about a forward-ref to `github.com/dave-tedder/open-brain` (no -dashboard) was about the `retro` skill — content unchanged in v0.2.
+- **iCloud-git-fragility** caveat continues to apply: this repo lives on iCloud. No corruption observed during this session's heavy file-write activity. README still warns cloners off iCloud.
+- **Personal-rules at ~/.claude/rules/ inode-shared with iCloud** — verified ~/.claude is a symlink to `/Users/davetedder/Library/Mobile Documents/com~apple~CloudDocs/.claude/`, so editing either path edits the same files. Important for the upcoming deploy step: deleting from `~/.claude/rules/` deletes from the iCloud copy too.
+- **Tracker change for Session 2:** added Task 7 (v0.2 refactor) to the todo list. Status flipped from COMPLETE back to IN PROGRESS.
 
 ## Session 1 - 2026-04-17
 
