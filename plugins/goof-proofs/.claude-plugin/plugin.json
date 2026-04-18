@@ -1,6 +1,6 @@
 {
   "name": "goof-proofs",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Battle-tested Claude Code skills and reference rules from real production work. v0.2 ships 26 auto-triggered skills covering Supabase, Next.js, iOS Safari, iCloud + git, LLM prompting, OpenRouter, computer-use MCP, and more — plus 5 reference rules for security baselines and project workflow. Skills auto-load only when their narrow trigger matches; rules sit as cherry-pickable markdown.",
   "author": {
     "name": "Dave Tedder",

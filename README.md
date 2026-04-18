@@ -103,6 +103,29 @@ The skills reflect what hits the edges of those tools. A different stack means m
 
 After install, all 26 skills auto-discover and trigger when their conditions match. Reference rules sit in `plugins/goof-proofs/rules/` (browse on GitHub, or in your local cache at `~/.claude/plugins/cache/`).
 
+## Optional: elevate the 3 "discipline" rules to auto-load
+
+The plugin ships 5 reference rules in `plugins/goof-proofs/rules/`. They sit there as text files — Claude can read them on request, but they don't auto-influence behavior the way skills do.
+
+Three of them I run as auto-loaded discipline in every session, and recommend you do too:
+
+- **`security-baseline.md`** — Supabase + Railway hygiene checklist (the one signal worth the auto-load is the "always destructure `{ error }` from Supabase writes" rule)
+- **`tracking-and-verification.md`** — `PROJECT-TRACKER.md` + `SESSION-LOG.md` workflow + verification discipline ("file parses" is not verification)
+- **`multi-session-workflow.md`** — handoff format for splitting work across multiple chats
+
+To make them auto-load on every Claude Code session, paste this into your terminal:
+
+```bash
+mkdir -p ~/.claude/rules
+curl -o ~/.claude/rules/security-baseline.md https://raw.githubusercontent.com/dave-tedder/daves-digi-doodads/main/plugins/goof-proofs/rules/security-baseline.md
+curl -o ~/.claude/rules/tracking-and-verification.md https://raw.githubusercontent.com/dave-tedder/daves-digi-doodads/main/plugins/goof-proofs/rules/tracking-and-verification.md
+curl -o ~/.claude/rules/multi-session-workflow.md https://raw.githubusercontent.com/dave-tedder/daves-digi-doodads/main/plugins/goof-proofs/rules/multi-session-workflow.md
+```
+
+Tradeoff: each rule adds ~250-1,200 words to your session-start context (auto-loaded into every conversation). If you don't use Supabase or Railway, skip `security-baseline`. If you don't run multi-session tracked projects, skip `tracking-and-verification` and `multi-session-workflow`.
+
+Note that `apple-health-no-rest-api.md` and `railway-domains.md` are also shipped as reference rules but I don't recommend auto-loading them — they're pure lookup material (you consult once per Apple Health integration decision or per Railway domain setup, not per session). Read them from the plugin cache when needed: `cat ~/.claude/plugins/cache/daves-digi-doodads/goof-proofs/0.2.0/rules/<filename>.md`.
+
 ## Updating
 
 ```bash
