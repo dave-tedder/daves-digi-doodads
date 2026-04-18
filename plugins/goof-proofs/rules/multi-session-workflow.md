@@ -93,8 +93,8 @@ Before ending a session:
 
 When the user asks for help writing prompts or instructions for a project:
 
-1. Consider the full scope of what he's trying to accomplish.
-2. Factor in his available tech stacks (see tech-stacks.md).
+1. Consider the full scope of what the user is trying to accomplish.
+2. Factor in the user's available tech stacks.
 3. If the work would benefit from multiple sessions, structure the instructions as phased prompts rather than one monolithic prompt.
 4. Each phase prompt should be self-contained enough that a fresh agent can execute it with only the prompt, PROJECT-TRACKER.md, and SESSION-LOG.md for context.
 5. Include in each prompt: what tools/platforms are involved, what the expected outcome is, and where to find any previous work.
