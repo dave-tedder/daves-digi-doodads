@@ -1,3 +1,8 @@
+---
+name: git-commit-splitting
+description: "Use when a single modified file contains hunks that belong to different logical commits (different sessions, different features, different bug fixes) and need to be split into separate commits — especially when `git add -p` isn't usable because no interactive stdin is available."
+---
+
 # Splitting Interleaved File Changes into Multiple Commits
 
 When a single modified file contains hunks that belong to different logical commits (different sessions, different features, different bug fixes), the goal is to ship each hunk in its own commit without bundling unrelated work.
