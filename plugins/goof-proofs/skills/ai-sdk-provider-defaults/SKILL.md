@@ -1,3 +1,8 @@
+---
+name: ai-sdk-provider-defaults
+description: "Use when writing or editing TypeScript/JavaScript code that imports from @ai-sdk/openai or instantiates a language model against an OpenAI-compatible backend (OpenRouter, Groq, Together, DeepInfra, Fireworks). Guards against the silent /v1/responses vs /v1/chat/completions routing bug introduced in @ai-sdk/openai 3.x."
+---
+
 # `@ai-sdk/openai` Provider Defaults: `provider(id)` vs `provider.chat(id)`
 
 Starting in `@ai-sdk/openai@3.x`, calling the default provider function with just a model ID returns a **Responses API** language model, not a Chat Completions one. The generated request goes to `/v1/responses` (OpenAI's new per-turn persistence-aware endpoint), not `/v1/chat/completions`.
