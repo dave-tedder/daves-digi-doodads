@@ -1,3 +1,8 @@
+---
+name: ios-print-gotchas
+description: "Use when implementing or debugging print functionality for a web application targeting iOS Safari, especially when printing content that lives inside a modal, overlay, or fixed-position container, or when the print sheet shows blank/missing content."
+---
+
 # iOS Print Gotchas
 
 ## `afterprint` fires on open, not close

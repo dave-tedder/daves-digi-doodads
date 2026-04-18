@@ -1,3 +1,8 @@
+---
+name: llm-metadata-extraction
+description: "Use when writing or debugging an LLM prompt that extracts structured metadata (action items, todos, tags, dates, project fields, categories, follow-ups) from narrative text, or when co-generating creative content alongside a derived structured list (meal plan + grocery list, video script + shot list, etc.)."
+---
+
 # LLM Metadata Extraction Prompts
 
 Lessons from running gpt-4o-mini as a structured-metadata extractor in production (Open Brain's `extractMetadata()`). Applies to any prompt that asks an LLM to parse narrative text into JSON fields like action items, project tags, topics, people, due dates, priority, etc.
@@ -88,7 +93,7 @@ The LLM generates the creative output (meal plan, script, program). Code then:
 2. Aggregates deterministically (sum quantities, normalize names, categorize).
 3. Emits the final list.
 
-This matches the `llm-decision-scoping.md` principle: let the LLM do the parts it's good at (vibes, language, pattern-matching), let code do the parts it's good at (counting, sums, enumeration). Tedder Trainer Session 43 (2026-04-14) fixed the meal plan generator by removing the `grocery_list` from the save path — Claude still emits one in its JSON output, but it's thrown away and replaced by `buildGroceryListFromMeals(plan.meals)`. All 11 previously-dropped ingredients now appear on every plan.
+This matches the `llm-decision-scoping` skill's principle: let the LLM do the parts it's good at (vibes, language, pattern-matching), let code do the parts it's good at (counting, sums, enumeration). Tedder Trainer Session 43 (2026-04-14) fixed the meal plan generator by removing the `grocery_list` from the save path — Claude still emits one in its JSON output, but it's thrown away and replaced by `buildGroceryListFromMeals(plan.meals)`. All 11 previously-dropped ingredients now appear on every plan.
 
 If splitting isn't feasible (e.g. a single-shot tool response that must contain both), at minimum run a code-side bidirectional check BEFORE persisting:
 - Every source item appears in the list (no drops).

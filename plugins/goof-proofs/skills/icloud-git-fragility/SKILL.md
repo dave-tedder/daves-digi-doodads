@@ -1,3 +1,8 @@
+---
+name: icloud-git-fragility
+description: "Use when working in a git repository located inside iCloud Drive, particularly after an interrupted git operation (Ctrl-C, crash, conflict), when running recursive greps across a multi-worktree directory, when seeing 'fatal: bad object HEAD' or missing pack files, or when concurrent Claude sessions touch the same repo."
+---
+
 # iCloud Drive + Git Fragility
 
 Git repositories stored on iCloud Drive are prone to corruption. iCloud's sync mechanism can delete or fail to sync individual objects in `.git/objects/`, leave stale `.lock` files, and abandon in-progress operations (rebase-apply, am).

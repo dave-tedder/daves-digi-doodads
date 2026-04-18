@@ -1,3 +1,8 @@
+---
+name: supabase-deploy-from-worktree
+description: "Use when deploying a Supabase Edge Function via the Supabase CLI while working in a git worktree on a feature branch, or when debugging 'I changed the Edge Function but the behavior didn't update' — the deploy reads from the working directory, not git HEAD or main."
+---
+
 # Deploying Supabase Edge Functions From a Git Worktree
 
 The Supabase CLI reads function source from the current working directory's `supabase/functions/<name>/index.ts` path. It does not read from the git index, HEAD, or main branch. This means:

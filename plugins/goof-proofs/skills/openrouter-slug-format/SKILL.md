@@ -1,3 +1,8 @@
+---
+name: openrouter-slug-format
+description: "Use when writing or editing code that passes an `anthropic/...` (or other vendor-prefixed) model slug to an OpenRouter SDK call, when converting a direct Anthropic model ID to an OpenRouter slug, or when an OpenRouter call returns a model-not-found / 404 / silent error response."
+---
+
 # OpenRouter Model Slug Format
 
 OpenRouter model slugs use a dot as the minor-version separator, not a dash. The direct Anthropic model ID format uses a dash for the same separator. Easy to mis-type when converting between them.

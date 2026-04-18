@@ -2,6 +2,8 @@
 
 These rules apply to any project using Supabase or Railway. Read this file at project start.
 
+> **What's actually unique here:** most of this is general security hygiene that experienced developers already practice. The one item with a silent failure mode worth highlighting is the Supabase **"always destructure `{ error }` from writes"** rule — a single column type mismatch silently swallows the entire row operation with no thrown exception. That one's the gold; the rest is a sanity checklist.
+
 ---
 
 ## Supabase

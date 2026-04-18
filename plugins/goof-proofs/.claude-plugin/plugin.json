@@ -1,7 +1,7 @@
 {
   "name": "goof-proofs",
-  "version": "0.1.0",
-  "description": "Battle-tested Claude Code skills and reference rules from real production work. Skills cover brainstorming, pre-build thinking, systematic debugging, agent orchestration, and session retrospectives. Bundled rule files document gotchas across Supabase, Next.js, Railway, iOS, iCloud, computer-use, LLM prompting, and more.",
+  "version": "0.2.0",
+  "description": "Battle-tested Claude Code skills and reference rules from real production work. v0.2 ships 26 auto-triggered skills covering Supabase, Next.js, iOS Safari, iCloud + git, LLM prompting, OpenRouter, computer-use MCP, and more — plus 5 reference rules for security baselines and project workflow. Skills auto-load only when their narrow trigger matches; rules sit as cherry-pickable markdown.",
   "author": {
     "name": "Dave Tedder",
     "url": "https://github.com/dave-tedder"
@@ -14,6 +14,10 @@
     "llm-patterns",
     "supabase",
     "nextjs",
+    "ios-safari",
+    "icloud",
+    "openrouter",
+    "computer-use",
     "railway"
   ]
 }

@@ -1,3 +1,8 @@
+---
+name: node-dev-servers
+description: "Use when starting or debugging Node.js development servers (Express + Vite or similar concurrent-process setups) from inside Claude Code's Bash tool, or when sharing a single module file between CommonJS and ESM callers in a Node 22+ project (helpers used by both server code and tests/frontend)."
+---
+
 # Node Dev Server Gotchas in Claude Code
 
 ## concurrently Doesn't Work in Claude Code's Background Process Sandbox

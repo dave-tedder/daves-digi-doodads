@@ -1,3 +1,8 @@
+---
+name: icloud-code-in-markdown
+description: "Use when creating or editing markdown documentation stored on iCloud Drive that contains substantial fenced code blocks (more than a few lines), or when investigating missing/corrupted code blocks in synced markdown files."
+---
+
 # Don't Embed Code Blocks in Markdown on iCloud Drive
 
 iCloud Drive sync (or editors syncing through iCloud) can strip or corrupt fenced code blocks in markdown files. This has been observed with large code blocks disappearing entirely from `.md` files after sync.

@@ -1,3 +1,8 @@
+---
+name: css-hidden-attribute
+description: "Use when authoring CSS rules that set `display:` on a class, or when debugging an element with the HTML `hidden` attribute set (or `el.hidden = true`) that still renders visible. Symptom: the page won't hide content, devtools shows the hidden attribute is present but ignored."
+---
+
 # HTML `hidden` Attribute vs. Class `display` Rules
 
 The HTML `hidden` attribute relies on the user-agent stylesheet rule `[hidden] { display: none }`. Any class selector that sets `display: *` beats it on specificity (class > type/attribute in the UA sheet) and renders the element visible regardless of whether `hidden` is set.

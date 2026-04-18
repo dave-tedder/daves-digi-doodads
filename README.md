@@ -4,11 +4,17 @@ A public [Claude Code](https://claude.com/claude-code) plugin marketplace. Curre
 
 ## Plugins
 
-### `goof-proofs`
+### `goof-proofs` (v0.2.0)
 
 Battle-tested skills and reference rules distilled from real production work. Lessons-learned, not theory.
 
-**Skills (auto-activate based on context):**
+**v0.2 changes:** 21 rules from v0.1 became auto-triggered skills. Five rules stay as reference markdown (broad-trigger workflow material that's better cherry-picked than auto-loaded). Net: **26 skills + 5 reference rules**, with token cost on install dropping ~85% versus dumping every rule into context on every session.
+
+#### Skills (auto-activate based on context)
+
+Skills load only their description (~30-50 tokens) into every session. The body loads only when the trigger fires.
+
+**Process / workflow (5):**
 
 | Skill | Triggers on |
 |---|---|
@@ -18,23 +24,58 @@ Battle-tested skills and reference rules distilled from real production work. Le
 | `agent-best-practices` | Multi-step tasks involving subagents or multi-session work |
 | `retro` | End-of-session retrospective — routes learnings into rules/memory |
 
-**Reference rules (24 markdown files under `plugins/goof-proofs/rules/`):**
+**Stack-specific gotchas (16):**
 
-Rules are shipped as reference material, not auto-injected. Cherry-pick what fits your stack and drop copies into your own `~/.claude/rules/` directory, or append the relevant ones to your `~/.claude/CLAUDE.md`.
+| Skill | Triggers on |
+|---|---|
+| `ai-sdk-provider-defaults` | `@ai-sdk/openai` code against OpenRouter / Groq / Together / etc. — silent `/v1/responses` routing bug |
+| `css-hidden-attribute` | CSS classes with `display:` rules, or debugging an element with `hidden` that won't hide |
+| `git-commit-splitting` | Splitting one file's changes across multiple commits without `git add -p` (no interactive stdin) |
+| `icloud-code-in-markdown` | Markdown docs on iCloud Drive with substantial fenced code blocks (which can vanish) |
+| `icloud-git-fragility` | Git repos on iCloud Drive — corruption recovery, sibling-worktree grep noise |
+| `ios-print-gotchas` | Web app print rendering on iOS Safari — `afterprint` timing, fixed-position trap |
+| `ios-safari-inputs` | Mobile iOS web inputs — focus zoom, accessory bar, `dvh` viewport for keyboard pinning |
+| `nextjs-middleware-auth` | Next.js App Router auth middleware — 3 silent fail-open modes |
+| `nextjs-server-component-events` | Server component passing event handlers to children — build passes, runtime dies |
+| `nextjs-server-component-verification` | Verifying a server component or Server Action from outside the browser |
+| `node-dev-servers` | `concurrently` failing in Claude Code's background sandbox; CJS / ESM interop in Node 22+ |
+| `notion-large-pages` | `notion_retrieve_block_children` exceeding token limits |
+| `openrouter-slug-format` | `anthropic/...` model slug to OpenRouter — dot vs dash silent failure |
+| `remote-asset-integrity` | Pipelines uploading to R2 / S3 / CDN then triggering processing |
+| `supabase-deploy-from-worktree` | Supabase Edge Function deploy from a feature branch worktree |
+| `supabase-query-patterns` | supabase-js queries — FK-alias avoidance, `.select('id').single()`, JSONB `.contains()` |
 
-Topics covered:
+**LLM engineering (2):**
 
-- **Supabase** — query patterns, deploy-from-worktree gotchas, `.insert/.update` error handling, JSONB patterns
-- **Next.js** — middleware auth traps (3 silent-failure modes), server components + event handler traps, server-action curl verification
-- **Railway** — custom domains (CNAME + TXT + port), deploy discipline
-- **iOS + Safari** — print rendering gotchas, input focus-zoom, accessory bar, `dvh` viewport
-- **iCloud + git** — `.git/objects` corruption, concurrent-session hazards, sibling worktree grep noise
-- **LLM prompting** — decision-scoping before asking a picker LLM, metadata extraction prompts, hallucinated tag fields, past-tense-to-imperative conversion bugs
-- **AI SDK / OpenRouter** — `provider(id)` vs `provider.chat(id)` silent failures, model slug format (dot vs dash)
-- **Computer-use MCP** — app tier awareness (read/click/full), Chrome vs Brave, preview_eval 30s timeout, write-mutation recovery procedure
-- **Workflow discipline** — tracking-and-verification protocol (PROJECT-TRACKER.md + SESSION-LOG.md), multi-session handoffs, git commit splitting
-- **Security baseline** — Supabase RLS, Railway env var hygiene, never-log-PII
-- **Platform odds and ends** — YouTube API gotchas, Notion large page retrieval, Apple Health no-REST, remote asset integrity
+| Skill | Triggers on |
+|---|---|
+| `llm-decision-scoping` | Designing LLM calls that pick matches from a list — scope candidates before asking |
+| `llm-metadata-extraction` | LLM prompts extracting structured metadata from narrative text |
+
+**Computer-use / preview (2):**
+
+| Skill | Triggers on |
+|---|---|
+| `computer-use-tiers` | Picking between computer-use, Claude-in-Chrome, and Control Chrome MCPs |
+| `preview-eval-timeouts` | `preview_eval` timing out at 30s — including write-mutation recovery procedure |
+
+**API odds and ends (1):**
+
+| Skill | Triggers on |
+|---|---|
+| `youtube-api-gotchas` | YouTube Data API — wrong channel matches, broken-unicode crashes downstream |
+
+#### Reference rules (5 markdown files under `plugins/goof-proofs/rules/`)
+
+These stay as reference rather than skills because their triggers fire on too much of a typical day's work, or because the content is a one-time lookup checklist. Cherry-pick what fits and copy into your `~/.claude/rules/` or paste into your `~/.claude/CLAUDE.md`.
+
+| Rule | Why reference, not skill |
+|---|---|
+| `apple-health-no-rest-api.md` | Pure fact lookup — no API exists, here's the workaround |
+| `railway-domains.md` | Three-step domain setup checklist (CNAME + TXT + port) |
+| `security-baseline.md` | General Supabase + Railway hygiene — broad audience, mostly already-known practices |
+| `tracking-and-verification.md` | Personal workflow file format (PROJECT-TRACKER + SESSION-LOG) — opinionated, adopt or replace |
+| `multi-session-workflow.md` | Personal session-handoff conventions — opinionated, adopt or replace |
 
 ## Stacks this is built around
 
@@ -48,7 +89,7 @@ These rules come from one person's production work. The author ships with:
 - **Notion** for project management, knowledge base, and CRM, driven via Notion's MCP integration.
 - **macOS + iOS** — native development environment, with iOS Safari as the primary mobile target and iCloud Drive as the default sync layer (which is where most of the iCloud-specific traps come from).
 
-The rules reflect what hits the edges of those tools. A different stack means cherry-picking what applies. Cross-cutting rules (LLM prompting, computer-use MCP, workflow discipline, security baseline, iCloud+git traps for any Mac user, git commit splitting) still apply regardless of backend choice.
+The skills reflect what hits the edges of those tools. A different stack means many skills simply won't fire (their triggers are narrow and stack-specific). Cross-cutting skills (LLM prompting, computer-use MCP, git commit splitting, the iCloud + git ones for any Mac user) still apply regardless of backend choice.
 
 ## Install
 
@@ -60,7 +101,7 @@ The rules reflect what hits the edges of those tools. A different stack means ch
 /plugin install goof-proofs@daves-digi-doodads
 ```
 
-After install, the 5 skills are immediately available. Claude Code auto-discovers them and invokes them when their trigger conditions match. To use the reference rules, browse `plugins/goof-proofs/rules/` on GitHub (or in your local plugin cache at `~/.claude/plugins/cache/`) and copy what applies to your stack.
+After install, all 26 skills auto-discover and trigger when their conditions match. Reference rules sit in `plugins/goof-proofs/rules/` (browse on GitHub, or in your local cache at `~/.claude/plugins/cache/`).
 
 ## Updating
 
@@ -79,14 +120,14 @@ After install, the 5 skills are immediately available. Claude Code auto-discover
 
 This is a personal knowledge dump made public so friends can bootstrap. If you want your own version, fork the repo, replace the marketplace name in `.claude-plugin/marketplace.json`, add your own plugins under `plugins/`, and point your friends at your fork.
 
-If you spot a genuine bug in one of the rules (e.g. "this claim about Next.js middleware is wrong as of v15.4"), PRs welcome. Stack-preference disagreements ("I'd use Fastify instead of Express") are off-topic — fork.
+If you spot a genuine bug in one of the skills or rules (e.g. "this claim about Next.js middleware is wrong as of v15.4"), PRs welcome. Stack-preference disagreements ("I'd use Fastify instead of Express") are off-topic — fork.
 
 ## Cloning locally
 
-If you clone this repo to read or modify it, do **not** put it in an iCloud Drive folder. Git + iCloud sync causes `.git/objects` corruption. See [`plugins/goof-proofs/rules/icloud-git-fragility.md`](plugins/goof-proofs/rules/icloud-git-fragility.md) for details. `~/Projects/`, `~/code/`, or anywhere outside iCloud is fine.
+If you clone this repo to read or modify it, do **not** put it in an iCloud Drive folder. Git + iCloud sync causes `.git/objects` corruption. See [`plugins/goof-proofs/skills/icloud-git-fragility/SKILL.md`](plugins/goof-proofs/skills/icloud-git-fragility/SKILL.md) for details. `~/Projects/`, `~/code/`, or anywhere outside iCloud is fine.
 
-## Meta: how these rules came to exist
+## Meta: how these came to exist
 
-Most of these files were written the day after a production incident — literally "here's what just burned us, here's how I'll recognize this next time." The real-world-use paragraphs at the bottom of many rules point to a specific commit or session where the gotcha bit. That context is kept intentionally: reading "Session 45 spent 30 minutes chasing this" communicates something different than "this can happen."
+Most of these files were written the day after a production incident — literally "here's what just burned us, here's how I'll recognize this next time." The real-world-use paragraphs at the bottom of many skills point to a specific commit or session where the gotcha bit. That context is kept intentionally: reading "Session 45 spent 30 minutes chasing this" communicates something different than "this can happen."
 
-Credit where due: the structure (rules in `~/.claude/rules/`, session logs, tracker files) grew from working with Claude Code across multiple projects and noticing what worked. Not claiming invention, just sharing what stuck.
+Credit where due: the structure (skills + reference rules, session logs, tracker files) grew from working with Claude Code across multiple projects and noticing what worked. Not claiming invention, just sharing what stuck.

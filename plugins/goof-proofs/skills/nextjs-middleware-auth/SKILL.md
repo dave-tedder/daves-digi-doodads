@@ -1,3 +1,8 @@
+---
+name: nextjs-middleware-auth
+description: "Use when implementing or debugging authentication in a Next.js App Router application — especially middleware-based password or token checks, when a protected route is serving content to anonymous traffic, when the redirect URL leaks an internal address, or when a deployed env var change exposes the site."
+---
+
 # Next.js Middleware and Auth Traps
 
 Three distinct ways a Next.js middleware auth check can silently fail open. All three were live in production at the same time on one project (Open Brain dashboard, 2026-04-17). Combined exposure: every protected route served its content to anonymous traffic for weeks.

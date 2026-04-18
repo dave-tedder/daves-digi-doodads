@@ -1,4 +1,11 @@
+---
+name: supabase-query-patterns
+description: "Use when writing or debugging supabase-js queries — especially insert calls that need the new row's UUID for downstream work, FK-alias embedded joins (the brittle `table!constraint_name(...)` syntax), JSONB containment dedup, or filtering for non-empty JSONB array fields."
+---
+
 # Supabase Query Patterns
+
+Note: the "always destructure `{ error }` on writes" rule lives in the `security-baseline` reference rule, not this skill, since it's general baseline hygiene rather than a pattern-specific gotcha.
 
 ## Avoid FK-alias joins in production code
 
@@ -35,20 +42,6 @@ const sourceById = new Map(sources.map((s) => [s.id, s.metadata]));
 One extra round-trip, zero schema-name dependency, explicit failure modes, and the related rows come back with their own full selection instead of nested under an alias key.
 
 The FK-alias form is fine for one-off Dashboard/SQL-editor queries where you can see the constraint name and iterate quickly. Don't ship it to an Edge Function.
-
-## Always destructure `{ error }` on writes
-
-supabase-js's `insert()`, `update()`, `upsert()` calls return `{ data, error }`. If you don't check `error`, a single column type mismatch (sending a decimal to an integer column, sending a string to a UUID column, violating a CHECK constraint) silently fails the entire row operation with no thrown exception. Only destructuring and checking `error` surfaces the failure.
-
-```ts
-const { error } = await supabase.from("thoughts").insert(row);
-if (error) {
-  console.error("Insert failed:", error);
-  // handle, don't continue as if it succeeded
-}
-```
-
-This is already in `~/.claude/rules/security-baseline.md` under the Supabase section but worth repeating here because it's the most common write-path bug.
 
 ## `.insert().select("id").single()` when you need the inserted row
 
