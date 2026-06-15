@@ -73,7 +73,9 @@
 **Next:**
 - Dave approved making v0.3.0 live.
 - Publication bookkeeping added `CHANGELOG.md` and linked it from README.
-- Next commands: merge to `main`, push `main`, tag `v0.3.0`, push the tag, and create the GitHub release.
+- Merged `codex/v0.3-starter-kit` to local `main` with merge commit `d3a76be`.
+- Final merged verification passed: manifests parse, 29 skills and 5 rules, skill frontmatter clean, credential scan empty.
+- Publication target: push `main`, tag `v0.3.0`, push the tag, and create the GitHub release.
 
 ## Session 4 - 2026-06-15
 

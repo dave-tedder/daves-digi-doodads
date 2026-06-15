@@ -1,5 +1,5 @@
 # daves-digi-doodads - Tracker
-## Status: PUBLICATION IN PROGRESS (v0.3.0 starter kit)
+## Status: COMPLETE (v0.3.0 starter kit)
 Started: 2026-04-17 | Last Updated: 2026-06-15 | Live: https://github.com/dave-tedder/daves-digi-doodads
 
 ## Overview
@@ -28,7 +28,7 @@ Public Claude Code plugin marketplace on GitHub. Hosts `goof-proofs`, a plugin b
 - [x] Task 14 - v0.2.2: Bump plugin.json to 0.2.2, close session, tag [Risk: low]
 - [x] Task 15 - v0.3 starter kit planning: save implementation plan and short kickoff prompt in `docs/plans/2026-06-15-v0.3-starter-kit.md` [Risk: low]
 - [x] Task 16 - v0.3 starter kit execution: add friend-facing docs, sanitized templates, cherry-pick recipes, and cross-tool setup guidance [Risk: medium, content review — secret/private scan passed with expected historical/metadata hits only]
-- [ ] Task 17 - v0.3.0 publication: add changelog, merge to main, push, tag, and publish release [Risk: low]
+- [x] Task 17 - v0.3.0 publication: add changelog, merge to main, push, tag, and publish release [Risk: low]
 
 ## v0.3 Starter Kit
 
@@ -41,7 +41,7 @@ Plan: `docs/plans/2026-06-15-v0.3-starter-kit.md`
 - [x] Audit newer local skills for public-safe promotion
 - [x] Run manifest, count, frontmatter, secret, and personal/private scans
 - [x] Decide whether to tag/release `v0.3.0` after Dave approval
-- [ ] Publish `v0.3.0` to GitHub
+- [x] Publish `v0.3.0` to GitHub
 
 ## Follow-ups (future sessions)
 
@@ -66,6 +66,6 @@ Plan: `docs/plans/2026-06-15-v0.3-starter-kit.md`
 
 ## Last Completed
 
-**Session:** 5 (2026-06-15) — PUBLICATION IN PROGRESS
-**What was done:** Executed and reviewed the v0.3 starter-kit pass, then started publication bookkeeping by adding `CHANGELOG.md` and preparing to merge, push, tag, and release `v0.3.0`.
-**Next task:** Merge `codex/v0.3-starter-kit` to `main`, push, tag `v0.3.0`, and publish the GitHub release.
+**Session:** 5 (2026-06-15) — v0.3.0 PUBLISHED
+**What was done:** Executed, reviewed, merged, tagged, and published the v0.3.0 starter-kit release with `CHANGELOG.md`, setup docs, sanitized templates, and 29-skill `goof-proofs`.
+**Next task:** Collect first-user feedback from friends and fold confusion points into docs.
