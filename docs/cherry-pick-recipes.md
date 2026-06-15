@@ -4,7 +4,7 @@ Use these recipes when you do not want the full bundle.
 
 ## Full Bundle
 
-Best for Claude Code users who want all 26 skills available.
+Best for Claude Code users who want all 29 skills available.
 
 ```bash
 /plugin marketplace add dave-tedder/daves-digi-doodads
@@ -48,6 +48,18 @@ plugins/goof-proofs/skills/llm-decision-scoping/SKILL.md
 plugins/goof-proofs/skills/llm-metadata-extraction/SKILL.md
 plugins/goof-proofs/skills/openrouter-slug-format/SKILL.md
 plugins/goof-proofs/skills/ai-sdk-provider-defaults/SKILL.md
+```
+
+## Skill And Plugin Authoring
+
+Best when you are building your own reusable skills, rules, or plugin docs.
+
+Copy these skills:
+
+```text
+plugins/goof-proofs/skills/gh-username-verification/SKILL.md
+plugins/goof-proofs/skills/skill-authoring-patterns/SKILL.md
+plugins/goof-proofs/skills/skill-vs-reference-triage/SKILL.md
 ```
 
 ## Supabase And Next.js Helpers
