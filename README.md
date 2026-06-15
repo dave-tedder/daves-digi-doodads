@@ -2,13 +2,17 @@
 
 A public [Claude Code](https://claude.com/claude-code) plugin marketplace. Currently hosts one plugin:
 
+New here? Start with [START-HERE.md](START-HERE.md).
+
+Release history lives in [CHANGELOG.md](CHANGELOG.md).
+
 ## Plugins
 
-### `goof-proofs` (v0.2.0)
+### `goof-proofs`
 
 Battle-tested skills and reference rules distilled from real production work. Lessons-learned, not theory.
 
-**v0.2 changes:** 19 of v0.1's rules were converted into 21 auto-triggered skills (two of those rules each split into two more-narrowly-triggered skills). Five rules stay as reference markdown (broad-trigger workflow material that's better cherry-picked than auto-loaded). Net: **26 skills + 5 reference rules**, with token cost on install dropping ~85% versus dumping every rule into context on every session.
+**v0.3 changes:** the repo now works as a starter kit, not only a plugin marketplace. It adds friend-facing setup docs, sanitized templates, and 3 skill/plugin authoring skills. Net: **29 skills + 5 reference rules**.
 
 #### Skills (auto-activate based on context)
 
@@ -23,6 +27,14 @@ Skills load only their description (~30-50 tokens) into every session. The body 
 | `systematic-debugging` | Any bug, error, or unexpected behavior — root cause before fix, no guessing |
 | `agent-best-practices` | Multi-step tasks involving subagents or multi-session work |
 | `retro` | End-of-session retrospective — routes learnings into rules/memory |
+
+**Skill/plugin authoring (3):**
+
+| Skill | Triggers on |
+|---|---|
+| `gh-username-verification` | Writing GitHub handles into public install commands, manifests, clone URLs, or README links |
+| `skill-authoring-patterns` | Authoring or editing `SKILL.md` files, especially trigger descriptions and portability |
+| `skill-vs-reference-triage` | Deciding whether reusable guidance belongs as a triggered skill or reference markdown |
 
 **Stack-specific gotchas (16):**
 
@@ -101,7 +113,14 @@ The skills reflect what hits the edges of those tools. A different stack means m
 /plugin install goof-proofs@daves-digi-doodads
 ```
 
-After install, all 26 skills auto-discover and trigger when their conditions match. Reference rules sit in `plugins/goof-proofs/rules/` (browse on GitHub, or in your local cache at `~/.claude/plugins/cache/`).
+After install, all 29 skills auto-discover and trigger when their conditions match. Reference rules sit in `plugins/goof-proofs/rules/` (browse on GitHub, or in your local cache at `~/.claude/plugins/cache/`).
+
+## Setup Guides
+
+- [Claude Code](docs/setup-claude-code.md)
+- [Codex](docs/setup-codex.md)
+- [Antigravity](docs/setup-antigravity.md)
+- [Cherry-pick recipes](docs/cherry-pick-recipes.md)
 
 ## Optional: elevate the 3 "discipline" rules to auto-load
 
@@ -124,7 +143,7 @@ curl -o ~/.claude/rules/multi-session-workflow.md https://raw.githubusercontent.
 
 Tradeoff: each rule adds ~250-1,200 words to your session-start context (auto-loaded into every conversation). If you don't use Supabase or Railway, skip `security-baseline`. If you don't run multi-session tracked projects, skip `tracking-and-verification` and `multi-session-workflow`.
 
-Note that `apple-health-no-rest-api.md` and `railway-domains.md` are also shipped as reference rules but I don't recommend auto-loading them — they're pure lookup material (you consult once per Apple Health integration decision or per Railway domain setup, not per session). Read them from the plugin cache when needed: `cat ~/.claude/plugins/cache/daves-digi-doodads/goof-proofs/0.2.0/rules/<filename>.md`.
+Note that `apple-health-no-rest-api.md` and `railway-domains.md` are also shipped as reference rules but I don't recommend auto-loading them — they're pure lookup material (you consult once per Apple Health integration decision or per Railway domain setup, not per session). Read them from the plugin cache when needed: `cat ~/.claude/plugins/cache/daves-digi-doodads/goof-proofs/<installed-version>/rules/<filename>.md`.
 
 ## Updating
 
