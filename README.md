@@ -4,6 +4,8 @@ A public [Claude Code](https://claude.com/claude-code) plugin marketplace. Curre
 
 New here? Start with [START-HERE.md](START-HERE.md).
 
+Release history lives in [CHANGELOG.md](CHANGELOG.md).
+
 ## Plugins
 
 ### `goof-proofs`

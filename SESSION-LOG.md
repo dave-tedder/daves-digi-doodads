@@ -71,9 +71,9 @@
 - `dcc4857` - Fix Claude Code project template guidance
 
 **Next:**
-- Dave review.
-- Do not tag or push without explicit approval.
-- If approved, publish `codex/v0.3-starter-kit` and tag `v0.3.0`, or merge/open a PR first depending on Dave's preference.
+- Dave approved making v0.3.0 live.
+- Publication bookkeeping added `CHANGELOG.md` and linked it from README.
+- Next commands: merge to `main`, push `main`, tag `v0.3.0`, push the tag, and create the GitHub release.
 
 ## Session 4 - 2026-06-15
 
