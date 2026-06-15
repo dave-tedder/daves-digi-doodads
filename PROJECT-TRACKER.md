@@ -1,5 +1,5 @@
 # daves-digi-doodads - Tracker
-## Status: IN PROGRESS (v0.3 starter kit)
+## Status: READY FOR REVIEW (v0.3 starter kit)
 Started: 2026-04-17 | Last Updated: 2026-06-15 | Live: https://github.com/dave-tedder/daves-digi-doodads
 
 ## Overview
@@ -27,18 +27,18 @@ Public Claude Code plugin marketplace on GitHub. Hosts `goof-proofs`, a plugin b
 - [x] Task 13 - v0.2.2: Add LICENSE (MIT) [Risk: low]
 - [x] Task 14 - v0.2.2: Bump plugin.json to 0.2.2, close session, tag [Risk: low]
 - [x] Task 15 - v0.3 starter kit planning: save implementation plan and short kickoff prompt in `docs/plans/2026-06-15-v0.3-starter-kit.md` [Risk: low]
-- [ ] Task 16 - v0.3 starter kit execution: add friend-facing docs, sanitized templates, cherry-pick recipes, and cross-tool setup guidance [Risk: medium, content review — must avoid sensitive/private config]
+- [x] Task 16 - v0.3 starter kit execution: add friend-facing docs, sanitized templates, cherry-pick recipes, and cross-tool setup guidance [Risk: medium, content review — secret/private scan passed with expected historical/metadata hits only]
 
 ## v0.3 Starter Kit
 
 Plan: `docs/plans/2026-06-15-v0.3-starter-kit.md`
 
-- [ ] Fix README version drift so the manifest stays the source of truth
-- [ ] Add `START-HERE.md` as the friend-facing front door
-- [ ] Add sanitized global and project workflow templates
-- [ ] Add Claude Code, Codex, Antigravity, and cherry-pick setup docs
-- [ ] Audit newer local skills for public-safe promotion
-- [ ] Run manifest, count, frontmatter, secret, and personal/private scans
+- [x] Fix README version drift so the manifest stays the source of truth
+- [x] Add `START-HERE.md` as the friend-facing front door
+- [x] Add sanitized global and project workflow templates
+- [x] Add Claude Code, Codex, Antigravity, and cherry-pick setup docs
+- [x] Audit newer local skills for public-safe promotion
+- [x] Run manifest, count, frontmatter, secret, and personal/private scans
 - [ ] Decide whether to tag/release `v0.3.0` after Dave approval
 
 ## Follow-ups (future sessions)
@@ -64,6 +64,6 @@ Plan: `docs/plans/2026-06-15-v0.3-starter-kit.md`
 
 ## Last Completed
 
-**Session:** 5 (2026-06-15) — IN PROGRESS
-**What was done:** Opened the v0.3 starter-kit execution branch from the saved plan at `docs/plans/2026-06-15-v0.3-starter-kit.md`.
-**Next task:** Execute the v0.3 starter-kit docs, templates, skill audit, and verification pass.
+**Session:** 5 (2026-06-15) — LOCAL COMPLETE, REVIEW NEEDED
+**What was done:** Executed the v0.3 starter-kit pass on `codex/v0.3-starter-kit`: added `START-HERE.md`, sanitized templates, setup docs for Claude Code/Codex/Antigravity, cherry-pick recipes, 3 public-safe skill-authoring helpers, and bumped `goof-proofs` to `0.3.0`.
+**Next task:** Dave review, then decide whether to tag `v0.3.0`, push the branch, open a PR, or merge locally.

@@ -10,7 +10,7 @@
 
 ## Session 5 - 2026-06-15
 
-**Task(s) in progress:** Task 16 - v0.3 starter kit execution.
+**Task(s) completed:** Task 16 - v0.3 starter kit execution.
 
 **Goal:** Make `daves-digi-doodads` easier for friends to use as a full `goof-proofs` install or as cherry-picked templates, skills, and rules for Claude Code, Codex, Antigravity, and similar agent tools.
 
@@ -22,6 +22,55 @@
 - Execution plan: `docs/plans/2026-06-15-v0.3-starter-kit.md`.
 
 **Guardrail:** Keep the starter kit public-safe. Do not publish Dave's private identity block, business-only configuration, account inventory, MCP URLs, API keys, tokens, Notion IDs, personal stack dumps, or other sensitive setup.
+
+**What was done:**
+- Opened execution branch `codex/v0.3-starter-kit`.
+- Fixed README version drift by removing the hardcoded `v0.2.0` heading and making the plugin cache path version-neutral.
+- Added `START-HERE.md` as the front door for full install, Codex setup, portable agent setup, and project-tracking-only paths.
+- Added sanitized templates under `templates/global/` and `templates/project/`.
+- Added setup docs for Claude Code, Codex, Antigravity/other agent tools, and cherry-pick recipes.
+- Audited newer local skill candidates. Promoted 3 public-safe starter-kit helpers: `gh-username-verification`, `skill-authoring-patterns`, and `skill-vs-reference-triage`.
+- Skipped `claude-code-hook-output-format`, `launchd-job-location`, `supabase-secrets-retrieval`, and `openrouter-anthropic-json-mode` for this pass. They may be useful later, but they were either narrower stack material, more personal-workflow-shaped, or not needed for the v0.3 starter-kit goal.
+- Bumped `plugins/goof-proofs/.claude-plugin/plugin.json` from `0.2.2` to `0.3.0` because the plugin now ships 29 skills.
+
+**Files modified:**
+- `README.md`
+- `START-HERE.md`
+- `templates/global/AGENTS.md`
+- `templates/global/CLAUDE.md`
+- `templates/project/AGENTS.md`
+- `templates/project/PROJECT-TRACKER.md`
+- `templates/project/SESSION-LOG.md`
+- `docs/setup-claude-code.md`
+- `docs/setup-codex.md`
+- `docs/setup-antigravity.md`
+- `docs/cherry-pick-recipes.md`
+- `plugins/goof-proofs/.claude-plugin/plugin.json`
+- `plugins/goof-proofs/skills/gh-username-verification/SKILL.md`
+- `plugins/goof-proofs/skills/skill-authoring-patterns/SKILL.md`
+- `plugins/goof-proofs/skills/skill-vs-reference-triage/SKILL.md`
+- `PROJECT-TRACKER.md`, `SESSION-LOG.md`
+
+**Verification:**
+- `jq . .claude-plugin/marketplace.json` and `jq . plugins/goof-proofs/.claude-plugin/plugin.json`: passed.
+- Skill count: 29. Rule count: 5. README and plugin manifest agree.
+- Skill frontmatter check for `name:` and `description:` across all `SKILL.md` files: no missing fields.
+- Credential-pattern scan for common API key/token/private key formats: zero hits.
+- Personal/private scan found expected historical and metadata hits only: tracker/log/plan guardrails, LICENSE/manifest author metadata, and older real-world examples already present in the plugin. New templates, setup docs, and promoted skills did not add private business context, account inventory, private MCP URLs, Notion IDs, tokens, or Dave's identity block.
+
+**Commit(s):**
+- `d85061e` - Open Session 5: v0.3 starter kit execution
+- `4cfaa9b` - Fix README version references
+- `a957759` - Add friend-facing start page
+- `6e515f4` - Add sanitized agent workflow templates
+- `204e279` - Add cross-tool setup and cherry-pick docs
+- `a9a7c83` - Add public-safe skill authoring helpers
+- closeout commit pending
+
+**Next:**
+- Dave review.
+- Do not tag or push without explicit approval.
+- If approved, publish `codex/v0.3-starter-kit` and tag `v0.3.0`, or merge/open a PR first depending on Dave's preference.
 
 ## Session 4 - 2026-06-15
 
