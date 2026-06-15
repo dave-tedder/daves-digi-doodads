@@ -32,6 +32,7 @@
 - Audited newer local skill candidates. Promoted 3 public-safe starter-kit helpers: `gh-username-verification`, `skill-authoring-patterns`, and `skill-vs-reference-triage`.
 - Skipped `claude-code-hook-output-format`, `launchd-job-location`, `supabase-secrets-retrieval`, and `openrouter-anthropic-json-mode` for this pass. They may be useful later, but they were either narrower stack material, more personal-workflow-shaped, or not needed for the v0.3 starter-kit goal.
 - Bumped `plugins/goof-proofs/.claude-plugin/plugin.json` from `0.2.2` to `0.3.0` because the plugin now ships 29 skills.
+- Sent the branch to a read-only review agent. The review found one release-blocking docs issue: Claude Code users were pointed at project `AGENTS.md`, which Claude Code does not load directly. Fixed by adding `templates/project/CLAUDE.md` as an `@AGENTS.md` wrapper and updating the Claude Code/cherry-pick docs.
 
 **Files modified:**
 - `README.md`
@@ -39,6 +40,7 @@
 - `templates/global/AGENTS.md`
 - `templates/global/CLAUDE.md`
 - `templates/project/AGENTS.md`
+- `templates/project/CLAUDE.md`
 - `templates/project/PROJECT-TRACKER.md`
 - `templates/project/SESSION-LOG.md`
 - `docs/setup-claude-code.md`
@@ -65,7 +67,8 @@
 - `6e515f4` - Add sanitized agent workflow templates
 - `204e279` - Add cross-tool setup and cherry-pick docs
 - `a9a7c83` - Add public-safe skill authoring helpers
-- closeout commit pending
+- `454d5da` - Close Session 5: v0.3 starter kit verification
+- review-fix commit pending
 
 **Next:**
 - Dave review.

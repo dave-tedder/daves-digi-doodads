@@ -35,7 +35,7 @@ Plan: `docs/plans/2026-06-15-v0.3-starter-kit.md`
 
 - [x] Fix README version drift so the manifest stays the source of truth
 - [x] Add `START-HERE.md` as the friend-facing front door
-- [x] Add sanitized global and project workflow templates
+- [x] Add sanitized global and project workflow templates, including a Claude Code project wrapper that imports `AGENTS.md`
 - [x] Add Claude Code, Codex, Antigravity, and cherry-pick setup docs
 - [x] Audit newer local skills for public-safe promotion
 - [x] Run manifest, count, frontmatter, secret, and personal/private scans
@@ -65,5 +65,5 @@ Plan: `docs/plans/2026-06-15-v0.3-starter-kit.md`
 ## Last Completed
 
 **Session:** 5 (2026-06-15) — LOCAL COMPLETE, REVIEW NEEDED
-**What was done:** Executed the v0.3 starter-kit pass on `codex/v0.3-starter-kit`: added `START-HERE.md`, sanitized templates, setup docs for Claude Code/Codex/Antigravity, cherry-pick recipes, 3 public-safe skill-authoring helpers, and bumped `goof-proofs` to `0.3.0`.
+**What was done:** Executed the v0.3 starter-kit pass on `codex/v0.3-starter-kit`: added `START-HERE.md`, sanitized templates, setup docs for Claude Code/Codex/Antigravity, cherry-pick recipes, 3 public-safe skill-authoring helpers, bumped `goof-proofs` to `0.3.0`, and fixed the review finding that Claude Code needs a project `CLAUDE.md` wrapper to load shared `AGENTS.md` guidance.
 **Next task:** Dave review, then decide whether to tag `v0.3.0`, push the branch, open a PR, or merge locally.

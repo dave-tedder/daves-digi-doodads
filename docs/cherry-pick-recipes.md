@@ -20,6 +20,7 @@ Best for any agent tool where continuity matters across sessions.
 Copy into your project root:
 
 ```text
+templates/project/CLAUDE.md
 templates/project/AGENTS.md
 templates/project/PROJECT-TRACKER.md
 templates/project/SESSION-LOG.md

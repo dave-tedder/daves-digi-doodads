@@ -18,7 +18,7 @@ Use the portable `SKILL.md` folders and the markdown templates.
 
 ### I Only Want Project Tracking
 
-Start with the project tracker and session log templates.
+Start with the project instruction, tracker, and session log templates.
 
 ## What Not To Copy
 

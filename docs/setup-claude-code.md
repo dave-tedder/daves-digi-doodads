@@ -57,5 +57,8 @@ Do this only for rules you actually want in every session. Auto-loaded rules spe
 Use these as starting points:
 
 - `templates/global/CLAUDE.md` for global Claude Code preferences
-- `templates/project/AGENTS.md` for project-local startup and guardrails
+- `templates/project/CLAUDE.md` for Claude Code project memory
+- `templates/project/AGENTS.md` for shared project-local startup and guardrails
 - `templates/project/PROJECT-TRACKER.md` and `templates/project/SESSION-LOG.md` for tracked project work
+
+The project `CLAUDE.md` template imports `AGENTS.md` with `@AGENTS.md`, so Claude Code gets the same shared project guidance that Codex and other tools can read.
