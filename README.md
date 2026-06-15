@@ -2,6 +2,8 @@
 
 A public [Claude Code](https://claude.com/claude-code) plugin marketplace. Currently hosts one plugin:
 
+New here? Start with [START-HERE.md](START-HERE.md).
+
 ## Plugins
 
 ### `goof-proofs`
