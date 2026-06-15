@@ -2,10 +2,26 @@
 
 ## Session Index
 <!-- One line per session. Newest at top. Format: Session N (date) - [summary] -->
+- Session 5 (2026-06-15) - v0.3 starter-kit execution branch opened
 - Session 4 (2026-06-15) - v0.3 starter-kit planning handoff saved under docs/plans
 - Session 3 (2026-04-18) - v0.2.2 polish fixes from full-project review (retro framing, pronoun leaks, LICENSE, README count, V0.2-TRIAGE superseded note)
 - Session 2 (2026-04-18) - v0.2.0 skills refactor (21 rules → skills) + v0.2.1 README patch + personal setup deployed, ~51% token reduction
 - Session 1 (2026-04-17) - Initial scaffolding, manifests, skills, rules, README, push
+
+## Session 5 - 2026-06-15
+
+**Task(s) in progress:** Task 16 - v0.3 starter kit execution.
+
+**Goal:** Make `daves-digi-doodads` easier for friends to use as a full `goof-proofs` install or as cherry-picked templates, skills, and rules for Claude Code, Codex, Antigravity, and similar agent tools.
+
+**Baseline:**
+- Started from `main`, then created `codex/v0.3-starter-kit`.
+- `git status --short --branch` before branching showed `## main...origin/main [ahead 1]` with no file changes listed.
+- Remote is `https://github.com/dave-tedder/daves-digi-doodads.git`.
+- Branch `codex/v0.3-starter-kit` did not already exist locally.
+- Execution plan: `docs/plans/2026-06-15-v0.3-starter-kit.md`.
+
+**Guardrail:** Keep the starter kit public-safe. Do not publish Dave's private identity block, business-only configuration, account inventory, MCP URLs, API keys, tokens, Notion IDs, personal stack dumps, or other sensitive setup.
 
 ## Session 4 - 2026-06-15
 

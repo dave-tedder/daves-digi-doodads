@@ -1,5 +1,5 @@
 # daves-digi-doodads - Tracker
-## Status: PLANNED (v0.3 starter kit)
+## Status: IN PROGRESS (v0.3 starter kit)
 Started: 2026-04-17 | Last Updated: 2026-06-15 | Live: https://github.com/dave-tedder/daves-digi-doodads
 
 ## Overview
@@ -29,6 +29,18 @@ Public Claude Code plugin marketplace on GitHub. Hosts `goof-proofs`, a plugin b
 - [x] Task 15 - v0.3 starter kit planning: save implementation plan and short kickoff prompt in `docs/plans/2026-06-15-v0.3-starter-kit.md` [Risk: low]
 - [ ] Task 16 - v0.3 starter kit execution: add friend-facing docs, sanitized templates, cherry-pick recipes, and cross-tool setup guidance [Risk: medium, content review — must avoid sensitive/private config]
 
+## v0.3 Starter Kit
+
+Plan: `docs/plans/2026-06-15-v0.3-starter-kit.md`
+
+- [ ] Fix README version drift so the manifest stays the source of truth
+- [ ] Add `START-HERE.md` as the friend-facing front door
+- [ ] Add sanitized global and project workflow templates
+- [ ] Add Claude Code, Codex, Antigravity, and cherry-pick setup docs
+- [ ] Audit newer local skills for public-safe promotion
+- [ ] Run manifest, count, frontmatter, secret, and personal/private scans
+- [ ] Decide whether to tag/release `v0.3.0` after Dave approval
+
 ## Follow-ups (future sessions)
 
 - **v0.2 refactor — triage done, ready for execution session.** See `V0.2-TRIAGE.md` in this directory. 22 rules convert to 24 skills (2 split), 2 rules stay as reference. Expected: dual win of better plugin UX + personal token load drop. Estimate: 3-4 hours focused across 1-2 sessions.
@@ -52,6 +64,6 @@ Public Claude Code plugin marketplace on GitHub. Hosts `goof-proofs`, a plugin b
 
 ## Last Completed
 
-**Session:** 4 (2026-06-15) — PLANNING COMPLETE
-**What was done:** Saved the full v0.3 starter-kit execution plan at `docs/plans/2026-06-15-v0.3-starter-kit.md`. The plan keeps `goof-proofs` as the full bundle while adding friend-facing docs, sanitized templates, cherry-pick recipes, and cross-tool setup guidance for Claude Code, Codex, Antigravity, and similar agent tools.
-**Next task:** Execute Task 16 from a fresh session using `docs/plans/2026-06-15-v0.3-starter-kit.md`. Start by reading this tracker, then the latest `SESSION-LOG.md` entry, then create `codex/v0.3-starter-kit` unless it already exists.
+**Session:** 5 (2026-06-15) — IN PROGRESS
+**What was done:** Opened the v0.3 starter-kit execution branch from the saved plan at `docs/plans/2026-06-15-v0.3-starter-kit.md`.
+**Next task:** Execute the v0.3 starter-kit docs, templates, skill audit, and verification pass.
