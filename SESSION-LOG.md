@@ -76,6 +76,7 @@
 - Merged `codex/v0.3-starter-kit` to local `main` with merge commit `d3a76be`.
 - Final merged verification passed: manifests parse, 29 skills and 5 rules, skill frontmatter clean, credential scan empty.
 - Publication target: push `main`, tag `v0.3.0`, push the tag, and create the GitHub release.
+- Follow-up wording pass: README now opens as a cross-tool starter kit instead of a Claude Code-specific marketplace, `goof-proofs` manifest description emphasizes portable agent skills, and README contributors list includes Dave Tedder and Codex. This is shipping as v0.3.1.
 
 ## Session 4 - 2026-06-15
 

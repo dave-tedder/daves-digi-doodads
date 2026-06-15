@@ -1,16 +1,23 @@
 # daves-digi-doodads
 
-A public [Claude Code](https://claude.com/claude-code) plugin marketplace. Currently hosts one plugin:
+A public starter kit for agent workflows: portable skills, reusable project templates, setup guides, and a full [Claude Code](https://claude.com/claude-code) plugin bundle for people who want the one-command install path.
 
 New here? Start with [START-HERE.md](START-HERE.md).
 
 Release history lives in [CHANGELOG.md](CHANGELOG.md).
 
-## Plugins
+## What Is In Here
+
+- `goof-proofs`: the full Claude Code plugin bundle.
+- `templates/`: sanitized global and project instruction templates for Claude Code, Codex, and similar tools.
+- `docs/`: setup guides and cherry-pick recipes for people who do not want the full plugin.
+- `START-HERE.md`: the shortest path for choosing what to copy or install.
+
+## Full Bundle
 
 ### `goof-proofs`
 
-Battle-tested skills and reference rules distilled from real production work. Lessons-learned, not theory.
+Battle-tested skills and reference rules distilled from real production work. Install the whole bundle in Claude Code, or cherry-pick the portable `SKILL.md` folders and templates for Codex, Antigravity, and similar agent tools.
 
 **v0.3 changes:** the repo now works as a starter kit, not only a plugin marketplace. It adds friend-facing setup docs, sanitized templates, and 3 skill/plugin authoring skills. Net: **29 skills + 5 reference rules**.
 
@@ -122,6 +129,11 @@ After install, all 29 skills auto-discover and trigger when their conditions mat
 - [Antigravity](docs/setup-antigravity.md)
 - [Cherry-pick recipes](docs/cherry-pick-recipes.md)
 
+## Contributors
+
+- Dave Tedder
+- Codex
+
 ## Optional: elevate the 3 "discipline" rules to auto-load
 
 The plugin ships 5 reference rules in `plugins/goof-proofs/rules/`. They sit there as text files — Claude can read them on request, but they don't auto-influence behavior the way skills do.
@@ -172,4 +184,4 @@ If you clone this repo to read or modify it, do **not** put it in an iCloud Driv
 
 Most of these files were written the day after a production incident — literally "here's what just burned us, here's how I'll recognize this next time." The real-world-use paragraphs at the bottom of many skills point to a specific commit or session where the gotcha bit. That context is kept intentionally: reading "Session 45 spent 30 minutes chasing this" communicates something different than "this can happen."
 
-Credit where due: the structure (skills + reference rules, session logs, tracker files) grew from working with Claude Code across multiple projects and noticing what worked. Not claiming invention, just sharing what stuck.
+Credit where due: the structure (skills + reference rules, session logs, tracker files) grew from working with Claude Code and Codex across multiple projects and noticing what worked. Not claiming invention, just sharing what stuck.

@@ -1,6 +1,6 @@
 # Start Here
 
-This repo is a public starter kit for agent workflows: skills, project tracking templates, and setup notes that came from real project work.
+This repo is a public starter kit for agent workflows: portable skills, project tracking templates, and setup notes that came from real project work.
 
 ## Pick Your Path
 

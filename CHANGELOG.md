@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.3.1 - 2026-06-15
+
+- Reworded the README opening so the repo reads as a cross-tool starter kit first and a Claude Code plugin marketplace second.
+- Added a README contributors section naming Dave Tedder and Codex.
+- Updated the `goof-proofs` manifest description to emphasize portable agent skills and Codex-friendly cherry-picking.
+
 ## v0.3.0 - 2026-06-15
 
 - Turned the repo into a starter kit, not only a Claude Code plugin marketplace.

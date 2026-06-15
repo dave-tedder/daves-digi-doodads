@@ -1,10 +1,10 @@
 # daves-digi-doodads - Tracker
-## Status: COMPLETE (v0.3.0 starter kit)
+## Status: COMPLETE (v0.3.1 starter kit wording)
 Started: 2026-04-17 | Last Updated: 2026-06-15 | Live: https://github.com/dave-tedder/daves-digi-doodads
 
 ## Overview
 
-Public Claude Code plugin marketplace on GitHub. Hosts `goof-proofs`, a plugin bundling Dave's battle-tested skills and rules so friends can bootstrap their own Claude Code setup.
+Public agent workflow starter kit on GitHub. Hosts `goof-proofs`, a Claude Code plugin bundle plus portable templates, skills, and rules so friends can bootstrap Claude Code, Codex, Antigravity, or similar agent tools.
 
 - Marketplace: `github.com/dave-tedder/daves-digi-doodads`
 - Plugin: `goof-proofs` (lessons from production)
@@ -29,6 +29,7 @@ Public Claude Code plugin marketplace on GitHub. Hosts `goof-proofs`, a plugin b
 - [x] Task 15 - v0.3 starter kit planning: save implementation plan and short kickoff prompt in `docs/plans/2026-06-15-v0.3-starter-kit.md` [Risk: low]
 - [x] Task 16 - v0.3 starter kit execution: add friend-facing docs, sanitized templates, cherry-pick recipes, and cross-tool setup guidance [Risk: medium, content review — secret/private scan passed with expected historical/metadata hits only]
 - [x] Task 17 - v0.3.0 publication: add changelog, merge to main, push, tag, and publish release [Risk: low]
+- [x] Task 18 - v0.3.1 wording pass: reposition README/about language as cross-tool starter kit and add Codex contributor credit [Risk: low]
 
 ## v0.3 Starter Kit
 
@@ -66,6 +67,6 @@ Plan: `docs/plans/2026-06-15-v0.3-starter-kit.md`
 
 ## Last Completed
 
-**Session:** 5 (2026-06-15) — v0.3.0 PUBLISHED
-**What was done:** Executed, reviewed, merged, tagged, and published the v0.3.0 starter-kit release with `CHANGELOG.md`, setup docs, sanitized templates, and 29-skill `goof-proofs`.
+**Session:** 5 (2026-06-15) — v0.3.1 PUBLISHED
+**What was done:** Published v0.3.0, then shipped v0.3.1 to make the README/about language read as a cross-tool starter kit first and add Codex as a contributor.
 **Next task:** Collect first-user feedback from friends and fold confusion points into docs.
