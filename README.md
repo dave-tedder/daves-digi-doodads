@@ -4,7 +4,7 @@ A public [Claude Code](https://claude.com/claude-code) plugin marketplace. Curre
 
 ## Plugins
 
-### `goof-proofs` (v0.2.0)
+### `goof-proofs`
 
 Battle-tested skills and reference rules distilled from real production work. Lessons-learned, not theory.
 
@@ -124,7 +124,7 @@ curl -o ~/.claude/rules/multi-session-workflow.md https://raw.githubusercontent.
 
 Tradeoff: each rule adds ~250-1,200 words to your session-start context (auto-loaded into every conversation). If you don't use Supabase or Railway, skip `security-baseline`. If you don't run multi-session tracked projects, skip `tracking-and-verification` and `multi-session-workflow`.
 
-Note that `apple-health-no-rest-api.md` and `railway-domains.md` are also shipped as reference rules but I don't recommend auto-loading them — they're pure lookup material (you consult once per Apple Health integration decision or per Railway domain setup, not per session). Read them from the plugin cache when needed: `cat ~/.claude/plugins/cache/daves-digi-doodads/goof-proofs/0.2.0/rules/<filename>.md`.
+Note that `apple-health-no-rest-api.md` and `railway-domains.md` are also shipped as reference rules but I don't recommend auto-loading them — they're pure lookup material (you consult once per Apple Health integration decision or per Railway domain setup, not per session). Read them from the plugin cache when needed: `cat ~/.claude/plugins/cache/daves-digi-doodads/goof-proofs/<installed-version>/rules/<filename>.md`.
 
 ## Updating
 
