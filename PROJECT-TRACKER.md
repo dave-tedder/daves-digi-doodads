@@ -1,6 +1,6 @@
 # daves-digi-doodads - Tracker
-## Status: COMPLETE (through v0.2.2)
-Started: 2026-04-17 | Last Updated: 2026-04-18 | Live: https://github.com/dave-tedder/daves-digi-doodads
+## Status: PLANNED (v0.3 starter kit)
+Started: 2026-04-17 | Last Updated: 2026-06-15 | Live: https://github.com/dave-tedder/daves-digi-doodads
 
 ## Overview
 
@@ -26,6 +26,8 @@ Public Claude Code plugin marketplace on GitHub. Hosts `goof-proofs`, a plugin b
 - [x] Task 12 - v0.2.2: README.md — polish rule/skill count phrasing to show the 19→21 split math [Risk: low]
 - [x] Task 13 - v0.2.2: Add LICENSE (MIT) [Risk: low]
 - [x] Task 14 - v0.2.2: Bump plugin.json to 0.2.2, close session, tag [Risk: low]
+- [x] Task 15 - v0.3 starter kit planning: save implementation plan and short kickoff prompt in `docs/plans/2026-06-15-v0.3-starter-kit.md` [Risk: low]
+- [ ] Task 16 - v0.3 starter kit execution: add friend-facing docs, sanitized templates, cherry-pick recipes, and cross-tool setup guidance [Risk: medium, content review — must avoid sensitive/private config]
 
 ## Follow-ups (future sessions)
 
@@ -50,10 +52,6 @@ Public Claude Code plugin marketplace on GitHub. Hosts `goof-proofs`, a plugin b
 
 ## Last Completed
 
-**Session:** 3 (2026-04-18) — COMPLETE
-**What was done:** v0.2.2 polish patch from a full-project "ultrareview." Fixed 5 items: retro skill now documents both slash (`/retro` / `/goof-proofs:retro`) and natural-language invocation; V0.2-TRIAGE.md has a superseded note at top pointing to Session 2's 3 flip decisions; two pronoun leaks in multi-session-workflow.md genericized (and a dangling `tech-stacks.md` ref dropped); README's "21 rules became skills" polished to show the actual 19-rules-to-21-skills split math; MIT LICENSE added. 7 commits on main; tagged v0.2.2.
-**Next task:** none — project complete through v0.2.2. Future work:
-- Watch for over-trigger reports on individual skills in real use
-- Consider v0.3 if friends adopt and surface gaps
-- When `open-brain` repo flips public, the one markdown link in retro/SKILL.md:28 will self-resolve (currently private, reads fine as plain text meanwhile)
-- Personal `~/.claude/rules/multi-session-workflow.md` has a stale "19 skills + 5 reference" count in its "Triage Before Execute" section — fix when doing the next personal-rules pass (21, not 19, is the actual new-skill count)
+**Session:** 4 (2026-06-15) — PLANNING COMPLETE
+**What was done:** Saved the full v0.3 starter-kit execution plan at `docs/plans/2026-06-15-v0.3-starter-kit.md`. The plan keeps `goof-proofs` as the full bundle while adding friend-facing docs, sanitized templates, cherry-pick recipes, and cross-tool setup guidance for Claude Code, Codex, Antigravity, and similar agent tools.
+**Next task:** Execute Task 16 from a fresh session using `docs/plans/2026-06-15-v0.3-starter-kit.md`. Start by reading this tracker, then the latest `SESSION-LOG.md` entry, then create `codex/v0.3-starter-kit` unless it already exists.

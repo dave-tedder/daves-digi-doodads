@@ -2,9 +2,62 @@
 
 ## Session Index
 <!-- One line per session. Newest at top. Format: Session N (date) - [summary] -->
+- Session 4 (2026-06-15) - v0.3 starter-kit planning handoff saved under docs/plans
 - Session 3 (2026-04-18) - v0.2.2 polish fixes from full-project review (retro framing, pronoun leaks, LICENSE, README count, V0.2-TRIAGE superseded note)
 - Session 2 (2026-04-18) - v0.2.0 skills refactor (21 rules → skills) + v0.2.1 README patch + personal setup deployed, ~51% token reduction
 - Session 1 (2026-04-17) - Initial scaffolding, manifests, skills, rules, README, push
+
+## Session 4 - 2026-06-15
+
+**Task(s) completed:** Task 15 - v0.3 starter kit planning.
+
+**Context:** Dave wants `daves-digi-doodads` to become a friend-facing place where less-technical users can either install the full `goof-proofs` bundle or cherry-pick global preferences, project tracking templates, skills, and rules for Claude Code, Codex, Antigravity, or similar agent tools. Hard guardrail: publish nothing sensitive, including Dave's private identity block, business-only configuration, account inventories, MCP URLs, API keys, tokens, Notion IDs, or personal stack dumps.
+
+**What was done:**
+- Saved the full execution plan at `docs/plans/2026-06-15-v0.3-starter-kit.md`.
+- Updated `PROJECT-TRACKER.md` from `COMPLETE (through v0.2.2)` to `PLANNED (v0.3 starter kit)`.
+- Added Task 15 as complete and Task 16 as the next executable v0.3 starter-kit pass.
+- Included a short kickoff prompt at the bottom of the plan for the next session.
+
+**Baseline carried into the plan:**
+- Repo was clean on `main` at session start: `## main...origin/main`.
+- The prior audit found local `HEAD` matched `origin/main` at `62b0b4e70204eaa009d27e23d61df954b91fadbe`.
+- Public tag `v0.2.2` exists.
+- Current package has 26 skills and 5 reference rules.
+- `plugins/goof-proofs/.claude-plugin/plugin.json` says version `0.2.2`.
+- README still has visible version drift: `goof-proofs (v0.2.0)`.
+- Prior checks parsed manifests, checked skill frontmatter, and found no credential-pattern hits.
+- Remote branch `origin/v0.2-skills-refactor` exists; do not delete it without Dave's explicit approval.
+
+**Files modified:**
+- `docs/plans/2026-06-15-v0.3-starter-kit.md` (new)
+- `PROJECT-TRACKER.md`
+- `SESSION-LOG.md`
+
+**Verification:**
+- Confirmed the working tree was clean before edits.
+- Read `PROJECT-TRACKER.md` and the latest `SESSION-LOG.md` entry before updating them.
+- Plan includes explicit verification commands for the next session: JSON manifest parsing, skill/rule counts, frontmatter checks, secret scan, and personal/private scan.
+
+**Commit(s):**
+- Planning handoff save point: `Save v0.3 starter kit handoff plan`
+
+**Short kickoff prompt for next session:**
+
+```markdown
+I'm working in `/Users/davetedder/Library/Mobile Documents/com~apple~CloudDocs/Projects/Apps/daves-digi-doodads`.
+
+Please read `PROJECT-TRACKER.md` first, then the latest `SESSION-LOG.md` entry, then follow `docs/plans/2026-06-15-v0.3-starter-kit.md`.
+
+Goal: execute the `v0.3` starter-kit pass so friends can install the full `goof-proofs` bundle or cherry-pick templates, skills, and rules for Claude Code, Codex, Antigravity, or similar agent tools. Keep anything sensitive out: no Dave identity block, business-only config, account inventory, private MCP URLs, tokens, keys, Notion IDs, or personal stack dumps.
+
+Start by checking `git status --short --branch`, then create `codex/v0.3-starter-kit` unless the tracker says that branch already exists.
+```
+
+**Notes:**
+- This session saved the plan only; it did not implement the v0.3 docs/templates.
+- The execution plan intentionally keeps `goof-proofs` as the full bundle and adds a tool-neutral starter layer around it.
+- Next session should commit task work in small rollback-safe commits and ask Dave before tagging or pushing.
 
 ## Session 3 - 2026-04-18
 
