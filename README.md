@@ -105,6 +105,13 @@ The skills reflect what hits the edges of those tools. A different stack means m
 
 After install, all 26 skills auto-discover and trigger when their conditions match. Reference rules sit in `plugins/goof-proofs/rules/` (browse on GitHub, or in your local cache at `~/.claude/plugins/cache/`).
 
+## Setup Guides
+
+- [Claude Code](docs/setup-claude-code.md)
+- [Codex](docs/setup-codex.md)
+- [Antigravity](docs/setup-antigravity.md)
+- [Cherry-pick recipes](docs/cherry-pick-recipes.md)
+
 ## Optional: elevate the 3 "discipline" rules to auto-load
 
 The plugin ships 5 reference rules in `plugins/goof-proofs/rules/`. They sit there as text files — Claude can read them on request, but they don't auto-influence behavior the way skills do.
