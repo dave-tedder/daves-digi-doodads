@@ -68,7 +68,7 @@
 - `204e279` - Add cross-tool setup and cherry-pick docs
 - `a9a7c83` - Add public-safe skill authoring helpers
 - `454d5da` - Close Session 5: v0.3 starter kit verification
-- review-fix commit pending
+- `dcc4857` - Fix Claude Code project template guidance
 
 **Next:**
 - Dave review.
